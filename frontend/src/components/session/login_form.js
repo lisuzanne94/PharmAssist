@@ -33,22 +33,26 @@ const LoginForm = ({ errors, login }) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <input type="text"
-                        value={state.email}
-                        onChange={update('email')}
-                        placeholder="Email"
-                    />
+                    <label>Email
+                        <input type='text'
+                            value={state.email}
+                            onChange={update('email')}
+                        />
+                    </label>
                     <br />
-                    <input type="password"
+                    <label>Password
+                    <input type='password'
                         value={state.password}
                         onChange={update('password')}
-                        placeholder="Password"
                     />
+                    </label>
                     <br />
-                    <input type="submit" value="Submit" />
+                    <input type='submit' value='Submit' />
                     {renderErrors()}
                 </div>
             </form>
         </div>
     )
 }
+
+export default LoginForm;
