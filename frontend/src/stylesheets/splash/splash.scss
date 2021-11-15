@@ -1,0 +1,48 @@
+.splash-page-container {
+    height: 95vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+}
+
+.element-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    color: white;
+}
+
+.element-container h1 {
+    font-size: 3em;
+}
+
+.element-container p {
+    text-align: center;
+    font-size: 2em;
+}
+
+.welcome-banner {
+    background-color: rgb(53, 80, 112);
+}
+
+.intro-msg {
+    background-color: rgb(109, 89, 122);
+}
+
+.splash-med-list {
+    background-color: rgb(181, 101, 118);
+}
+
+.splash-calendar {
+    background-color: rgb(234,172,139);
+}
+
+.splash-map {
+    background-color: rgb(90,170,149);
+}
+
+.splash-contact {
+    background-color: rgb(134,168,115);
+}
