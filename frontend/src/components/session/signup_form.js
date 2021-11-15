@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 
-const SignupForm = ({ signedIn, errors, signup }) => {
+const SignupForm = props => {
     const [state, setState] = useState({
         firstName: '',
         lastName: '',
@@ -9,14 +9,6 @@ const SignupForm = ({ signedIn, errors, signup }) => {
         password: '',
         password2: '',
         zipCode: ''
-    });
-
-    const history = useHistory();
-
-    useEffect(() => {
-        if (signedIn) {
-            history.push('/login');
-        }
     });
 
     const update = field => {
@@ -37,15 +29,15 @@ const SignupForm = ({ signedIn, errors, signup }) => {
             zipCode: state.zipCode
         };
 
-        signup(user);
+        props.signup(user);
     };
 
     const renderErrors = () => {
         return (
             <ul>
-                {Object.keys(errors).map((error, i) => (
+                {Object.keys(props.errors).map((error, i) => (
                     <li key={`error-${i}`}>
-                        {errors[error]}
+                        {props.errors[error]}
                     </li>
                 ))}
             </ul>
@@ -104,4 +96,4 @@ const SignupForm = ({ signedIn, errors, signup }) => {
     )
 };
 
-export default SignupForm;
+export default withRouter(SignupForm);
