@@ -7,10 +7,12 @@ const LoginForm = ({ errors, login }) => {
     });
 
     const update = field => {
-        return e => setState(prevProps => ({
+        return e => setState(prevProps => {
+            // debugger
+            return ({
             ...prevProps,
-            [field]: e.currentTarget.value
-        }));
+            [field]: e.target.value
+        })});
     };
 
     const handleSubmit = e => {

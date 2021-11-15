@@ -13,7 +13,7 @@ const SignupForm = ({ errors, signup }) => {
     const update = field => {
         return e => setState(prevProps => ({
             ...prevProps,
-            [field]: e.currentTarget.value
+            [field]: e.target.value
         }));
     };
 
