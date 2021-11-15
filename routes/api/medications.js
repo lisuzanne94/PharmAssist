@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const keys = require('../../config/keys');
 const passport = require('passport');
 
 const Medication = require('../../models/Medication');
 const validateMedicationInput = require('../../validation/medications');
+
+router.get("/test", (req, res) => res.json({ msg: "This is the medications route" }));
 
 router.get('/user/:user_id', 
     passport.authenticate('jwt', { session: false }),

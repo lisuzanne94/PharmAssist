@@ -11,11 +11,11 @@ const MedicationSchema = new Schema({
         required: true
     },
     dose: {
-        type: Number,
+        type: String,
         required: true
     },
     frequency: {
-        type: Number,
+        type: String,
         required: true
     }
 }, {
