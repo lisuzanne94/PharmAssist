@@ -5,11 +5,19 @@ const Splash = () => {
     return (
         <div className="splash-page-container">
             <div className="welcome-banner element-container">
+                <figure>Image of pharmacist here??</figure>
                 <h1 className="welcome-msg">Welcome to PharmAssist</h1>
             </div>
 
             <div className="intro-msg element-container">
-                <h1>What is PharmAssist?</h1>
+                <div>
+                    <h1>What is PharmAssist?</h1>
+                    <br/>
+                    <br/>
+                    <p>Keeping track of your medications can be hard.</p> 
+                    <p>We're here to make it easier.</p> 
+                    <p>Keep scrolling to find out what we can do for you.</p>
+                </div>
             </div>
 
             <div className="splash-med-list element-container">
