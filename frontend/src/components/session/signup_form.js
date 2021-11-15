@@ -45,35 +45,47 @@ const SignupForm = ({ errors, signup }) => {
     return (
         <div className='signup-form-container'>
             <form className='signup-form' onSubmit={handleSubmit}>
+                    <label>First Name
                     <input type='text'
                         value={state.firstName}
                         onChange={update('firstName')}
                     />
+                    </label>
                     <br />
+                    <label>Last Name
                     <input type='text'
                         value={state.lastName}
                         onChange={update('lastName')}
                     />
+                    </label>
                     <br />
+                    <label>Email
                     <input type='text'
                         value={state.email}
                         onChange={update('email')}
                     />
+                    </label>
                     <br />
+                    <label>Password
                     <input type='password'
                         value={state.password}
                         onChange={update('password')}
                     />
+                    </label>
                     <br />
+                    <label>Confirm Password
                     <input type='password'
                         value={state.password2}
                         onChange={update('password2')}
                     />
+                    </label>
                     <br />
+                    <label>Zip Code
                     <input type='text'
                         value={state.zipCode}
                         onChange={update('zipCode')}
                     />
+                    </label>
                     <br />
                     <input type='submit' value='Submit' />
                     {renderErrors()}
