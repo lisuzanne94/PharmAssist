@@ -29,7 +29,7 @@ router.get('/:id',
 
 router.post('/',
     passport.authenticate('jwt', { session: false }),
-    (req, res) => {
+    async (req, res) => {
         const { errors, isValid } = validateMedicationInput(req.body);
 
         if (!isValid) {
@@ -43,7 +43,7 @@ router.post('/',
             user: req.user.id
         });
 
-        newMedication.save().then(medication => res.json(medication));
+        await newMedication.save().then(medication => res.json(medication));
     }
 );
 
@@ -72,5 +72,16 @@ router.patch('/:id',
     }
 );
 
+router.delete('/:id',
+    passport.authenticate('jwt', { session: false }),
+    async (req, res) => {
+        try {
+            await Medication.deleteOne({ id: req.params.id })
+            res.status(204).send()
+        } catch {
+            res.status(404).json({ nomedicationfound: 'No medication found with that ID' })
+        }
+    }
+);
 
 module.exports = router;
