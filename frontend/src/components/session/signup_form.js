@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SignupForm = ({ signedIn, errors, signup }) => {
+const SignupForm = ({ errors, signup }) => {
     const [state, setState] = useState({
         firstName: '',
         lastName: '',

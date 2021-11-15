@@ -1,3 +1,4 @@
+import { session } from 'passport';
 import {
     RECEIVE_CURRENT_USER,
     RECEIVE_USER_LOGOUT,
@@ -9,7 +10,7 @@ const initialState = {
     user: {}
 };
 
-export default sessionReducer = (state = initialState, action) => {
+const sessionReducer = (state = initialState, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return {
@@ -31,3 +32,5 @@ export default sessionReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export default sessionReducer;
