@@ -7,11 +7,20 @@ const NavBar = props => {
         props.logout();
     };
 
-    return (
-        <nav>
-            
-        </nav>
-    );
+    if (props.loggedIn) {
+        return (
+            <nav>
+                <button onClick={logoutUser}>Logout</button>
+            </nav>
+        );
+    } else {
+        return (
+            <nav>
+                <Link to={'/signup'}><button>Sign Up</button></Link>
+                <Link to={'/login'}><button>Login</button></Link>
+            </nav>
+        );
+    }
 }
 
 export default NavBar;
