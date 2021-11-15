@@ -1,6 +1,5 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
-// const validNumber = require('./valid-number');
 
 module.exports = function validateMedicationInput(data) {
     let errors = {};
@@ -8,6 +7,7 @@ module.exports = function validateMedicationInput(data) {
     data.brandName = validText(data.brandName) ? data.brandName : '';
     data.dose = validText(data.dose) ? data.dose : '';
     data.frequency = validText(data.frequency) ? data.frequency : '';
+    data.strength = validText(data.strength) ? data.strength : '';
 
     if (Validator.isEmpty(data.brandName)) {
         errors.brandName = 'Brand name field is required';
@@ -19,6 +19,10 @@ module.exports = function validateMedicationInput(data) {
 
     if (Validator.isEmpty(data.frequency)) {
         errors.frequency = 'Frequency field is required';
+    }
+    
+    if (Validator.isEmpty(data.strength)) {
+        errors.strength = 'Strength field is required';
     }
 
     return {

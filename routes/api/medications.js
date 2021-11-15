@@ -43,6 +43,7 @@ router.post('/',
             brandName: req.body.brandName,
             dose: req.body.dose,
             frequency: req.body.frequency,
+            strength: req.body.strength,
             user: req.user.id
         });
 
@@ -66,6 +67,10 @@ router.patch('/:id',
 
             if (req.body.frequency) {
                 medication.frequency = req.body.frequency
+            }
+            
+            if (req.body.strength) {
+                medication.strength = req.body.strength
             }
 
             await medication.save().then(medication => res.json(medication));

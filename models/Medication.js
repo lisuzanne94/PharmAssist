@@ -17,6 +17,10 @@ const MedicationSchema = new Schema({
     frequency: {
         type: String,
         required: true
+    },
+    strength: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true
