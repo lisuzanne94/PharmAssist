@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 
-const SignupForm = ({ errors, signup }) => {
+const SignupForm = ({ signedIn, errors, signup }) => {
     const [state, setState] = useState({
         firstName: '',
         lastName: '',
@@ -8,6 +9,14 @@ const SignupForm = ({ errors, signup }) => {
         password: '',
         password2: '',
         zipCode: ''
+    });
+
+    const history = useHistory();
+
+    useEffect(() => {
+        if (signedIn) {
+            history.push('/login');
+        }
     });
 
     const update = field => {
@@ -36,7 +45,7 @@ const SignupForm = ({ errors, signup }) => {
             <ul>
                 {Object.keys(errors).map((error, i) => (
                     <li key={`error-${i}`}>
-                        {error}
+                        {errors[error]}
                     </li>
                 ))}
             </ul>
