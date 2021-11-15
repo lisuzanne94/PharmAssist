@@ -11,9 +11,10 @@ const SignupForm = ({ errors, signup }) => {
     });
 
     const update = field => {
-        return e => setState({
+        return e => setState(prevProps => ({
+            ...prevProps,
             [field]: e.currentTarget.value
-        });
+        }));
     };
 
     const handleSubmit = e => {
@@ -35,7 +36,7 @@ const SignupForm = ({ errors, signup }) => {
             <ul>
                 {Object.keys(errors).map((error, i) => (
                     <li key={`error-${i}`}>
-                        {errors[error]}
+                        {error}
                     </li>
                 ))}
             </ul>
