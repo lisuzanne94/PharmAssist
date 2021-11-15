@@ -6,7 +6,7 @@ const Splash = () => {
         <div>
             <h1>PharmAssist</h1>
             <footer>
-                Copyright &copy; 2021 Susanne Li, Subin Cho, Sohee Park, Matt Swedin
+                Copyright &copy; 2021 Suzanne Li, Subin Cho, Sohee Park, Matt Swedin
             </footer>
         </div>
     );
