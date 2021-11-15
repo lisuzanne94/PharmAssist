@@ -4,23 +4,30 @@ const Splash = () => {
 
     return (
         <div className="splash-page-container">
-            <h1>PharmAssist</h1>
-
-            <div className="splash-about">
-                THIS IS THE ABOUT
+            <div className="welcome-banner element-container">
+                <h1 className="welcome-msg">Welcome to PharmAssist</h1>
             </div>
 
-            <div className="splash-med-list">
-                THIS IS THE MED LIST
+            <div className="intro-msg element-container">
+                <h1>What is PharmAssist?</h1>
             </div>
 
-            <div className="splash-calendar">
-                THIS IS THE CALENDAR
+            <div className="splash-med-list element-container">
+                MEDLIST FEATURE
             </div>
 
-            <div className="splash-map">
-                THIS IS THE MAP
+            <div className="splash-calendar element-container">
+                CALENDAR FEATURE
             </div>
+
+            <div className="splash-map element-container">
+                MAP FEATURE
+            </div>
+
+            <div className="splash-contact element-container">
+                Questions? Contact us
+            </div>
+
 
             <footer>
                 Copyright &copy; 2021 Suzanne Li, Subin Cho, Sohee Park, Matt Swedin

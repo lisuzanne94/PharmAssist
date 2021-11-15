@@ -1,27 +1,36 @@
 .splash-page-container {
-    width: 100vw;
+    height: 95vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
 }
 
-.splash-about {
-    width: 100vw;
-    height: 100vw;
-    border: 1px solid rgb(0, 0, 0);
+
+.element-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    font-size: 4em;
+}
+
+.welcome-banner {
+    background-color: rgb(226, 124, 187);
+}
+
+.intro-msg {
+    background-color: rgb(253, 248, 160);
 }
 
 .splash-med-list {
-    width: 100vw;
-    height: 100vw;
-    border: 1px solid rgb(255, 0, 0);
+    background-color: rgb(254, 151, 151);
 }
 
 .splash-calendar {
-    width: 100vw;
-    height: 100vw;
-    border: 1px solid rgb(76, 0, 255);
+    background-color: rgb(192, 165, 255);
 }
 
 .splash-map {
-    width: 100vw;
-    height: 100vw;
-    border: 1px solid rgb(0, 255, 13);
+    background-color: rgb(151, 255, 156);
 }
