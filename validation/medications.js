@@ -29,7 +29,7 @@ module.exports = function validateMedicationInput(data) {
     }
 
     if (Validator.isDate(data.date)) {
-        errors.te = 'Date is not valid';
+        errors.date = 'Date is not valid';
     }
 
     return {
