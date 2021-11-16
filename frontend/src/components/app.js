@@ -12,7 +12,6 @@ import CalendarContainer from './calendar/calendar_container';
 const App = () => (
     <div>
         <NavBarContainer />
-        <CalendarContainer />
         <Switch>
             <AuthRoute exact path='/' component={Splash} />
             <AuthRoute exact path='/login' component={LoginFormContainer} />
