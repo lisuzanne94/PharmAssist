@@ -105,7 +105,7 @@
         .main-container {
             @include section-container;
             justify-content: center;
-            background: linear-gradient(180deg, rgba(53,80,112,1) 90%, rgba(109,89,122,1) 100%);
+            background: rgba(53,80,112);
 
             .main-page {
                 color: #fff;
@@ -155,11 +155,11 @@
         }
 
         section:nth-child(2) {
-            background: linear-gradient(180deg, rgb(109,89,122) 90%, rgb(156, 68, 87) 100%);
+            background: rgb(109,89,122);
         }
 
         section:nth-child(3) {
-            background: linear-gradient(180deg, rgb(156, 68, 87) 90%, rgb(187, 83, 91) 100%);
+            background: rgb(156, 68, 87);
         }
 
         section:nth-child(4) {
