@@ -29,7 +29,7 @@ module.exports = function validateMedicationInput(data) {
     }
 
     // make sure form input is date
-    if ((!Validator.isEmpty) && !(Validator.isDate(data.date))) {
+    if ((!Validator.isEmpty(data.date)) && !(Validator.isDate(data.date))) {
         errors.date = 'Date is not valid';
     }
 
