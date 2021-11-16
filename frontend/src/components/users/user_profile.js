@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const UserProfile = ({ logout }) => {
@@ -18,9 +18,9 @@ const UserProfile = ({ logout }) => {
                     </div>
                 </div>
                 <div className='user-nav-links'>
-                    <Link to=''>Medication List</Link>
-                    <Link to=''>Calendar</Link>
-                    <Link to=''>Find Your Nearest Pharmacy</Link>
+                    <a href=''>Medication List</a>
+                    <a href=''>Calendar</a>
+                    <a href=''>Find Your Nearest Pharmacy</a>
                 </div>
                 <div className='other-nav-links'>
                     <Link to=''>How to Use</Link><br/>
@@ -30,8 +30,16 @@ const UserProfile = ({ logout }) => {
             </section>
 
             <div id='section-right'>
-                <section id='user-medication-list-container'>
-                    <h1 className='user-medication-list-header'>Medication List</h1>
+                <section id='main' className='main-container scroll-snap'>
+                    <h1 className='main-page'>Welcome, Current User!</h1>
+                    <div className='user-container-divider'>
+                    </div>
+                </section>
+
+                <section id='medlist' className='user-container scroll-snap'>
+                    <h1 className='user-header'>Medication List</h1>
+                    <div className='user-container-divider'>
+                    </div>
                     <ul className='user-medication-list'>
                         <li className='user-medication-list-item'>Amlodipine 10mg</li>
                         <li className='user-medication-list-item'>Carvedilol 12.5mg</li>
@@ -40,12 +48,16 @@ const UserProfile = ({ logout }) => {
                     </ul>
                 </section>
 
-                <section id='user-calendar'>
-                    <h1 className='user-calendar-header'>Calendar</h1>
+                <section id='calendar' className='user-container scroll-snap'>
+                    <h1 className='user-header'>Calendar</h1>
+                    <div className='user-container-divider'>
+                    </div>
                 </section>
             
-                <section id='user-pharmacy-map'>
-                    <h1 className='user-pharmacy-map-header'>Find a Pharmacy</h1>
+                <section id='pharmacy' className='user-container scroll-snap'>
+                    <h1 className='user-header'>Find a Pharmacy</h1>
+                    <div className='user-container-divider'>
+                    </div>
                 </section>
             </div>
         </div>
