@@ -5,7 +5,7 @@
     width: 100vw;
     #user-nav {
         @include flex-centered-column;
-        position: relative;
+        position: fixed;
         width: 23%;
         height: 100%;
         background: rgb(53,80,112);
@@ -15,7 +15,7 @@
             display: inline-block;
             position: absolute;
             text-align: center;
-            top: 10px;
+            top: 30px;
             height: auto;
             .pharmassist-header {
                 color: #ffffff;
@@ -30,23 +30,13 @@
                 }
             }
             .user-nav-divider {
-                display: inline-block;
-                width: 70%;
-                margin: 15px 0 40px;
-                border-bottom: 1px solid rgba(218, 229, 236, 0.253);
+                @include nav-divider;
             }
         }
         .user-nav-links {
-            width: 100%;
+            @include nav-links;
             a {
-                display: block;
-                color: #fff;
-                text-decoration: none;
-                line-height: 40px;
-                margin-bottom: 5px;
-                transition: ease-in-out 0.3s;
                 border-left: 5px solid transparent;
-                padding-left: 20px;
                 &:after {
                     content: '';
                     display: inline-block;
@@ -63,6 +53,21 @@
             .focus-click {
                 padding-left: 35px;
                 border-left: 5px solid #fff;
+            }
+        }
+        .other-nav-links {
+            @include nav-links;
+            margin-top: 40px;
+            font-size: 18px;
+            margin-left: 50px;
+            a {
+                display: inline;
+                transition: ease 0.2s;
+                border-bottom: 1px solid transparent;
+                padding: 0;
+                &:hover {
+                    border-bottom: 1px solid #fff;
+                }
             }
         }
         .user-nav-logout {
@@ -85,22 +90,24 @@
         }
     }
     #section-right {
-        width: 80%;
-        height: 100vh;
+        width: 77%;
         right: 0;
-        position: relative;
+        position: absolute;
         @include flex-centered-column;
 
-        #user-medication-list {
+        #user-medication-list-container {
             @include section-container;
 
             .user-medication-list-header {
                 @include section-header;
             }
 
+            .user-medication-list {
+                margin: 20px 60px;
+            }
+
             .user-medication-list-item {
                 font-size: 20px;
-                margin-left: 20px;
                 padding-left: 10px;
                 line-height: 40px;
                 list-style: disc;
