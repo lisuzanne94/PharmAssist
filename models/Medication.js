@@ -21,6 +21,12 @@ const MedicationSchema = new Schema({
     strength: {
         type: String,
         required: true
+    },
+    duration: {
+        type: String
+    },
+    startDate: {
+        type: Date
     }
 }, {
     timestamps: true
