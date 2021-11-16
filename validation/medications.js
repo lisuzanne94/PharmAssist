@@ -28,6 +28,10 @@ module.exports = function validateMedicationInput(data) {
         errors.strength = 'Strength field is required';
     }
 
+    if (Validator.isDate(data.date)) {
+        errors.te = 'Date is not valid';
+    }
+
     return {
         errors,
         isValid: Object.keys(errors).length === 0
