@@ -48,8 +48,8 @@ export const fetchMedication = medId => dispatch => (
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
-export const createMedication = data => dispatch => (
-    APIUtil.createMedication(data)
+export const createMedication = medication => dispatch => (
+    APIUtil.createMedication(medication)
         .then(medication => {
             dispatch(receiveMedication(medication));
             dispatch(clearErrors());
