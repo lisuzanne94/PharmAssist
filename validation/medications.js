@@ -28,9 +28,7 @@ module.exports = function validateMedicationInput(data) {
         errors.strength = 'Strength field is required';
     }
 
-    if (Validator.isEmpty(data.date)) {
-        return '';
-    }
+    (!Validator.isEmpty(data.date)) ? data.date : '';
 
     if (!Validator.isDate(data.date)) {
         errors.date = 'Date is not valid';
