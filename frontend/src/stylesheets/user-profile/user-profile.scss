@@ -1,0 +1,215 @@
+@import './tooltip.scss';
+
+#user-profile {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    #user-nav {
+        @include flex-centered-column;
+        position: fixed;
+        width: 23%;
+        height: 100%;
+        background: rgb(53,80,112);
+        background: linear-gradient(180deg, rgba(53,80,112,1) 21%, rgba(109,89,122,1) 70%, rgba(181,101,118,1) 90%, rgba(229,107,111,1) 100%);
+        font-size: 20px;
+        .user-nav-header {
+            display: inline-block;
+            position: absolute;
+            text-align: center;
+            top: 30px;
+            height: auto;
+            .pharmassist-header {
+                button {
+                    color: #fff;
+                    font-family: $sec-font;
+                    font-size: 35px;
+                    line-height: 45px;
+                    letter-spacing: 1px;
+                    font-weight: 300;
+                    text-transform:uppercase;
+                    background: none;
+                    border: none;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                .assist {
+                    color: #a5b7cc;
+                }
+            }
+            .user-nav-divider {
+                @include nav-divider;
+            }
+        }
+        .user-nav-links {
+            @include nav-links;
+            button {
+                text-align: left;
+                width: 100%;
+                font-size: 20px;
+                font-weight: 300;
+                letter-spacing: 1px;
+                background: none;
+                border: none;
+                border-left: 5px solid transparent;
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    border-bottom: 1px solid #fff;
+                    transform: scaleX(0);
+                    transition: transform ease-in-out 0.25s;
+                }
+                &:hover {
+                    cursor: pointer;
+                    padding-left: 35px;
+                    border-left: 5px solid rgba(255, 255, 255, 0.548);
+                    background: rgba(255, 255, 255, 0.062);
+                }
+            }
+            .focus-click {
+                padding-left: 35px;
+                border-left: 5px solid #fff;
+            }
+        }
+        .other-nav-links {
+            @include nav-links;
+            margin-top: 40px;
+            margin-left: 50px;
+            button {
+                display: inline-block;
+                background: none;
+                border: none;
+                font-size: 18px;
+                font-weight: 300;
+                letter-spacing: 0.5px;
+                transition: ease 0.2s;
+                padding: 0;
+                @include scroll-underline;
+                &:after {
+                    margin: -5px;
+                    border-color: #fff;
+                    transform-origin: 100% 50%;
+                    transition: transform cubic-bezier(0.215, 0.610, 0.355, 1) 0.3s;
+                }
+                &:hover {
+                    cursor: pointer;
+                    &:after {
+                        transform-origin: 0% 50%;
+                    }
+                }
+            }
+        }
+        .user-nav-logout {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 0 15px 15px;
+            width: 30%;
+            font-size: 18px;
+            line-height: 32px;
+            font-weight: 300;
+            border: 1px solid #fff;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.062);
+            transition: ease-in 0.2s;
+            &:hover {
+                background: rgba(255, 255, 255, 0.253);
+                cursor: pointer;
+            }
+        }
+    }
+    #section-right {
+        width: 77%;
+        right: 0;
+        position: absolute;
+        @include flex-centered-column;
+        .main-container {
+            @include section-container;
+            justify-content: center;
+
+            h1.main-page {
+                text-transform: uppercase;
+                font-size: 60px;
+                font-family: $sec-font;
+                margin-bottom: 20px;
+                animation-name: slidedown;
+                animation-duration: 1.5s;
+            }
+
+            .left-button {
+                @include main-button;
+                margin-right: 15px;
+            }
+
+            .right-button {
+                @include main-button;
+                animation-delay: 2.4s;
+                background: #fff;
+                color: $color;
+                &:hover {
+                    background-color: rgb(241, 241, 241);
+                }
+            }
+
+            @keyframes slidedown {
+                from {
+                    margin-top: -30%;
+                    opacity: 0;
+                }
+
+                to {
+                    margin-top: 0%;
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+        
+        .user-container {
+            @include section-container;
+            scroll-snap-align: start;
+
+            .user-header {
+                @include section-header;
+                @include scroll-underline;
+            }
+
+            .add-button {
+                top: 18px;
+                right: 10%;
+                position: absolute;
+            }
+
+            .plus-sign {
+                background: none;
+                border: none;
+                display: inline-block;
+                font-size: 40px;
+                transition: ease-out 0.1s;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .user-medication-list {
+                margin: 10px 60px;
+            }
+
+            .user-medication-list-item {
+                font-size: 20px;
+                padding-left: 10px;
+                line-height: 40px;
+            }
+        }
+    }
+}

@@ -2,17 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = props => {
-    const logoutUser = (e) => {
-        e.preventDefault();
-        props.logout();
-    };
-
     if (props.loggedIn) {
-        return (
-            <nav>
-                <button onClick={logoutUser}>Logout</button>
-            </nav>
-        );
+        return null;
     } else {
         return (
             <nav>

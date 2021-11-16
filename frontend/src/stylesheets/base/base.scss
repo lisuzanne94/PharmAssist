@@ -1,2 +1,15 @@
 @import './mixins.scss';
 @import './variables.scss';
+
+body {
+    font-family: $font;
+    font-weight: 300;
+    font-size: 16px;
+    color: $color;
+    letter-spacing: 0.6px;
+    background: #ebebeb;
+}
+
+button {
+    font-family: $font;
+}
