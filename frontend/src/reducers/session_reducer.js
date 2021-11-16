@@ -1,4 +1,3 @@
-import { session } from 'passport';
 import {
     RECEIVE_CURRENT_USER,
     RECEIVE_USER_LOGOUT

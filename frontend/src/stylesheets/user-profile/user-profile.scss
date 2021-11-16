@@ -1,0 +1,169 @@
+#user-profile {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    #user-nav {
+        @include flex-centered-column;
+        position: fixed;
+        width: 23%;
+        height: 100%;
+        background: rgb(53,80,112);
+        background: linear-gradient(180deg, rgba(53,80,112,1) 21%, rgba(109,89,122,1) 70%, rgba(181,101,118,1) 90%, rgba(229,107,111,1) 100%);
+        font-size: 20px;
+        .user-nav-header {
+            display: inline-block;
+            position: absolute;
+            text-align: center;
+            top: 30px;
+            height: auto;
+            .pharmassist-header {
+                color: #fff;
+                font-family: $sec-font;
+                font-size: 35px;
+                line-height: 45px;
+                letter-spacing: 1px;
+                font-weight: 300;
+                text-transform:uppercase;
+                .assist {
+                    color: #a5b7cc;
+                }
+            }
+            .user-nav-divider {
+                @include nav-divider;
+            }
+        }
+        .user-nav-links {
+            @include nav-links;
+            a {
+                border-left: 5px solid transparent;
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    border-bottom: 1px solid #fff;
+                    transform: scaleX(0);
+                    transition: transform ease-in-out 0.25s;
+                }
+                &:hover {
+                    padding-left: 35px;
+                    border-left: 5px solid rgba(255, 255, 255, 0.548);
+                    background: rgba(255, 255, 255, 0.062);
+                }
+            }
+            .focus-click {
+                padding-left: 35px;
+                border-left: 5px solid #fff;
+            }
+        }
+        .other-nav-links {
+            @include nav-links;
+            margin-top: 40px;
+            font-size: 18px;
+            margin-left: 50px;
+            a {
+                display: inline-block;
+                transition: ease 0.2s;
+                padding: 0;
+                @include scroll-underline;
+                &:after {
+                    margin: -5px;
+                    transform-origin: 100% 50%;
+                    transition: transform cubic-bezier(0.215, 0.610, 0.355, 1) 0.3s;
+                }
+                &:hover {
+                    &:after {
+                        transform-origin: 0% 50%;
+                    }
+                }
+            }
+        }
+        .user-nav-logout {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 0 15px 15px;
+            width: 30%;
+            font-size: 18px;
+            line-height: 32px;
+            font-weight: 300;
+            border: 1px solid #fff;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.062);
+            transition: ease-in 0.2s;
+            &:hover {
+                background: rgba(255, 255, 255, 0.253);
+                cursor: pointer;
+            }
+        }
+    }
+    #section-right {
+        width: 77%;
+        right: 0;
+        position: absolute;
+        @include flex-centered-column;
+
+        .main-container {
+            @include section-container;
+            justify-content: center;
+            background: rgba(53,80,112);
+
+            .main-page {
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 60px;
+                font-family: $sec-font;
+                animation-name: slidedown;
+                animation-duration: 2s;
+            }
+
+            @keyframes slidedown {
+                from {
+                    margin-top: -50%;
+                    opacity: 0;
+                }
+
+                to {
+                    margin-top: 0%;
+                    opacity: 1;
+                }
+            }
+        }
+        
+        .user-container {
+            @include section-container;
+
+            .user-header {
+                @include section-header;
+                @include scroll-underline;
+            }
+
+            .user-medication-list {
+                margin: 10px 60px;
+            }
+
+            .user-medication-list-item {
+                color: #fff;
+                font-size: 20px;
+                padding-left: 10px;
+                line-height: 40px;
+            }
+        }
+
+        .scroll-snap {
+            scroll-snap-type: y mandatory;
+            overflow-y: auto;
+        }
+
+        section:nth-child(2) {
+            background: rgb(109,89,122);
+        }
+
+        section:nth-child(3) {
+            background: rgb(156, 68, 87);
+        }
+
+        section:nth-child(4) {
+            background: rgb(187, 83, 91);
+        }
+    }
+}
