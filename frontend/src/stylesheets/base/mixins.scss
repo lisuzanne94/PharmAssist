@@ -1,0 +1,25 @@
+@mixin flex-centered-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin section-container {
+    margin: 0 auto;
+    width: 80%;
+    height: 70%;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+@mixin section-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    font-size: 35px;
+    color: rgb(148, 148, 148);
+}

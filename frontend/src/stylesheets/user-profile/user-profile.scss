@@ -1,3 +1,96 @@
-#user-nav {
-    
+#user-profile {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    #user-nav {
+        @include flex-centered-column;
+        width: 20%;
+        height: 100%;
+        background: rgb(53,80,112);
+        background: linear-gradient(180deg, rgba(53,80,112,1) 21%, rgba(109,89,122,1) 70%, rgba(181,101,118,1) 90%, rgba(229,107,111,1) 100%);
+        font-size: 20px;
+        .user-nav-header {
+            display: inline-block;
+            position: absolute;
+            text-align: center;
+            top: 10px;
+            height: auto;
+            .pharmassist-header {
+                color: #ffffff;
+                font-family: $sec-font;
+                font-size: 35px;
+                line-height: 45px;
+                letter-spacing: 1px;
+                font-weight: 300;
+                text-transform:uppercase;
+                .assist {
+                    color: #a5b7cc;
+                }
+            }
+            .user-nav-divider {
+                display: inline-block;
+                width: 70%;
+                margin: 15px 0 40px;
+                border-bottom: 1px solid #dae5ec;
+            }
+        }
+        .user-nav-links {
+            width: 100%;
+            a {
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                line-height: 50px;
+                transition: ease-in-out 0.3s;
+                border-left: 3px solid transparent;
+                padding-left: 20px;
+                
+                &:hover {
+                    padding-left: 35px;
+                    border-left: 3px solid #fff;
+                }
+            }
+        }
+    }
+    #section-right {
+        width: 80%;
+        height: 100vh;
+        right: 0;
+        position: relative;
+        display: flex;
+        // flex-wrap: wrap;
+        // flex-direction: column;
+        // justify-content: center;
+
+        #user-medication-list {
+            @include section-container;
+
+            .user-medication-list-header {
+                @include section-header;
+            }
+
+            .user-medication-list-item {
+                font-size: 20px;
+                margin-left: 20px;
+                padding-left: 10px;
+                line-height: 40px;
+                list-style: disc;
+            }
+        }
+
+        #user-calendar {
+            @include section-container;
+            .user-calendar-header {
+                @include section-header;
+            }
+        }
+
+        #user-pharmacy-map {
+            @include section-container;
+            .user-pharmacy-map-header {
+                @include section-header;
+            }
+        }
+    }
 }
