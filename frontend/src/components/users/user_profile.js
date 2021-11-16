@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import CalendarContainer from '../calendar/calendar_container';
 
 const UserProfile = ({ logout }) => {
     const logoutUser = (e) => {
@@ -51,6 +52,7 @@ const UserProfile = ({ logout }) => {
                 <section id='calendar' className='user-container scroll-snap'>
                     <h1 className='user-header'>Calendar</h1>
                     <div className='user-container-divider'>
+                        <CalendarContainer />
                     </div>
                 </section>
             
