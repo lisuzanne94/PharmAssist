@@ -14,7 +14,7 @@ class Calendar extends React.Component {
     showYearPopup: false
   }
 
-  weekdays = moment.weekdays()
+  weekdays = moment.weekdaysShort()
   months = moment.months()
 
   year = () => {
@@ -45,7 +45,7 @@ class Calendar extends React.Component {
 
     render(){
       const weekdays = this.weekdays.map(day => {
-        return <td key={day}>{day}</td>
+        return <td key={day} className="weekday">{day}</td>
       })
 
       const blanks = [];
