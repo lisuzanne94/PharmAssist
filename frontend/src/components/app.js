@@ -6,10 +6,12 @@ import Splash from './splash/splash';
 import NavBarContainer from './nav/navbar_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
+import CalendarContainer from './calendar/calendar_container';
 
 const App = () => (
     <div>
         <NavBarContainer />
+        <CalendarContainer />
         <Switch>
             <AuthRoute exact path='/' component={Splash} />
             <AuthRoute exact path='/login' component={LoginFormContainer} />
