@@ -1,5 +1,5 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
+import { closeModal, openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import MedicationCreateContainer from '../medication_form/medication_create_container';
 
@@ -10,7 +10,7 @@ function Modal({modal, closeModal}) {
   if (!modal) {
     return null;
   }
-  const component;
+  let component;
   switch (modal.type) {
     case 'createMedication':
       component = <MedicationCreateContainer />;
@@ -18,9 +18,10 @@ function Modal({modal, closeModal}) {
     default:
       return null;
   }
+
   return (
-    <div onClick={closeModal}>
-      <div onClick={event => event.stopPropagation()}>
+       <div className="modelbg" onClick={closeModal}>
+      <div className="modelc" onClick={e => e.stopPropagation()}>
         { component }
       </div>
     </div>
@@ -35,7 +36,11 @@ const mapS = state => {
 
 const mapD = dispatch => {
   return {
-    closeModal: () => dispatch(closeModal())
+
+    closeModal: () => dispatch(closeModal()),
+
+
+    
   };
 };
 

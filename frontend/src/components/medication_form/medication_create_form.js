@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
-import { query } from "express";
+import React, { useState } from "react";
 
-const MedicationCreateForm = ({ errors }) => {
+
+const MedicationCreateForm = ({ errors, createMedication, closeModal }) => {
     const [state, setState] = useState({
+        brandName: '',
         dose: '',
         frequency: '',
         strength: '',
@@ -11,19 +11,19 @@ const MedicationCreateForm = ({ errors }) => {
         startDate: '',
     })
 
-    const [data, setData] = useState({ hits: [] });
-    const [query, setQuery] = useState({})
+    // const [data, setData] = useState({ brandName: '', hits: [] });
+    // const [query, setQuery] = useState({})
 
-    const useEffect = (async () => {
-        const result = await axios(`https://api.fda.gov/drug/label.json?search=openfda.brand_name:${query}`)
-        return () => {
-            cleanup
-        }
-    }, []);
+    // const useEffect = (async () => {
+    //     const result = await axios(`https://api.fda.gov/drug/label.json?search=openfda.brand_name:${query}`)
+    //     return () => {
+    //         cleanup
+    //     }
+    // }, []);
 
-    const handleSubmit = () => ({
-        
-    })
+    const handleSubmit = () => (
+        createMedication(state).then(closeModal())
+    )
 
     const update = field => {
         return event => {
@@ -31,11 +31,13 @@ const MedicationCreateForm = ({ errors }) => {
         }
     }
 
+    console.log("hi")
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <h1>Brand Name</h1>
-                <input type="text" value={data.brandName} onChange={update('brandName')}/>
+                <input type="text" value={state.brandName} onChange={update('brandName')}/>
                 <br />
                 <h1>Dose</h1>
                 <input type="text" value={state.dose} onChange={update('dose')}/>
@@ -52,7 +54,10 @@ const MedicationCreateForm = ({ errors }) => {
                 <h1>Start Date</h1>
                 <input type="date" value={state.startDate} onChange={update('startDate')}/>
                 <br />
+                <input type='submit' value='Submit' />
             </form>
         </div>
     )
 }
+
+export default MedicationCreateForm;

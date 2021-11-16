@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import MedicationCreateForm from './medication_create_form'
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
+import { createMedication } from '../../actions/medication_actions'
 
 const mapS = state => ({
-    errors: state.errors.medication
+    errors: state.errors.medications
 })
 
 const mapD = dispatch => ({
-     openModal: () => dispatch(openModal('createMedication')),
-     closeModal: () => dispatch(closeModal())
+    createMedication: (medication) => dispatch(createMedication(medication)),
+    closeModal: (modal) => dispatch(closeModal(modal))
 })
 
 export default connect(mapS, mapD)(MedicationCreateForm)
