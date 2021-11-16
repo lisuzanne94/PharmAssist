@@ -49,8 +49,7 @@ router.post('/',
             user: req.user.id
         });
 
-        await newMedication.save()
-        res.send(newMedication)
+        await newMedication.save().then(medication => res.json(medication));
     }
 );
 
