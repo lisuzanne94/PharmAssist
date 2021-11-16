@@ -12,7 +12,7 @@ const MedicationsReducer = (prevState = {}, action) => {
         case RECEIVE_USER_MEDICATIONS:
             return action.medications.data;
         case RECEIVE_MEDICATION:
-            nextState[action.medications.id] = action.medication;
+            nextState[action.medication.data._id] = action.medication.data;
             return nextState;
         case REMOVE_MEDICATION:
             delete nextState[action.medId]
