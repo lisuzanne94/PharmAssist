@@ -53,15 +53,19 @@ class Calendar extends React.Component {
 
     const daysInMonth = [];
     for (let day = 1; day <= this.daysInMonth(); day++) {
-      const className = (day === this.currentDay() ? "day current-day" : "day")
+      const currentDay = parseInt(this.currentDay())
+      const className = (day === currentDay ? "day current-day" : "day")
       daysInMonth.push(<td key={day} className={className}>
-        {day}
+        <div className="day-block">
+          {day}
+          {day === 18 ? <span>Sertraline 50mg</span> : null}
+        </div>
       </td>)
 
     }
 
     const totalSlots = [...blankDays, ...daysInMonth];
-    console.log(totalSlots)
+    // console.log(totalSlots)
     let rows = [];
     let cells = [];
 
@@ -83,18 +87,20 @@ class Calendar extends React.Component {
 
     const rowEls = rows.map((day, i) => {
       return (
-        <tr key={i} >
+        <tr key={i} className="calendar-day">
           {day}
         </tr>
       );
     });
 
+    console.log(rowEls ? rowEls : null)
+
     return (
       <div>
-        <table>
+        <table className="calendar-container">
           <thead>
             <tr>
-              <th colSpan="7">{this.month()}</th>
+              <th colSpan="7" className="calendar-month">{this.month()}</th>
             </tr>
           </thead>
           <tbody>

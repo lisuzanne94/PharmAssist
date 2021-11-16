@@ -1,0 +1,23 @@
+.calendar-container {
+    width: 85vw;
+    height: 80vh;
+    text-align: center;
+    background-color: blue;
+}
+
+.calendar-month {
+   height: 40px;
+}
+
+.day-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+}
+
+.current-day {
+    background-color: red;
+}
