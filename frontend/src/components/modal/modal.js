@@ -11,7 +11,7 @@ function Modal({modal, closeModal}) {
     return null;
   }
   let component;
-  switch (modal.type) {
+  switch (modal) {
     case 'createMedication':
       component = <MedicationCreateContainer />;
       break;

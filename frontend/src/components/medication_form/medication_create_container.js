@@ -4,6 +4,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { createMedication } from '../../actions/medication_actions'
 
 const mapS = state => ({
+    currentUser: state.session.user.id,
     errors: state.errors.medications
 })
 

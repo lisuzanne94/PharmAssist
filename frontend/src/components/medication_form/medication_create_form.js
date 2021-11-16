@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 
-const MedicationCreateForm = ({ errors, createMedication, closeModal }) => {
+const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModal }) => {
     const [state, setState] = useState({
+        currentUser: currentUser,
         brandName: '',
         dose: '',
         frequency: '',
@@ -26,8 +27,11 @@ const MedicationCreateForm = ({ errors, createMedication, closeModal }) => {
     )
 
     const update = field => {
-        return event => {
-            setState({[field]: event.currentTarget.value})
+        return event => {   
+            setState(prevProps => ({
+            ...prevProps,
+            [field]: event.target.value
+        }));
         }
     }
 
