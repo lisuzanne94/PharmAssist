@@ -1,5 +1,5 @@
 const validDate = date => {
-    if ((date instanceof Date) && !isNaN(date)) {
+    if (date instanceof Date) {
         return true;
     }
 }
