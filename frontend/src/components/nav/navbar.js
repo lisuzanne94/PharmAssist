@@ -8,11 +8,7 @@ const NavBar = props => {
     };
 
     if (props.loggedIn) {
-        return (
-            <nav>
-                <button onClick={logoutUser}>Logout</button>
-            </nav>
-        );
+        return null;
     } else {
         return (
             <nav>

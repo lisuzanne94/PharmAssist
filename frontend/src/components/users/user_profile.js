@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserProfile = () => {
+const UserProfile = ({ logout }) => {
+    const logoutUser = (e) => {
+        e.preventDefault();
+        logout();
+    };
+
     return (
         <div id='user-profile'>
             <section id='user-nav'>
@@ -13,10 +18,17 @@ const UserProfile = () => {
                     </div>
                 </div>
                 <div className='user-nav-links'>
-                    <Link to=''>Medication List</Link><br/>
-                    <Link to=''>Calendar</Link><br/>
-                    <Link to=''>Find Your Nearest Pharmacy</Link><br/>
+                    <Link to=''>Medication List</Link>
+                    <Link to=''>Calendar</Link>
+                    <Link to=''>Find Your Nearest Pharmacy</Link>
                 </div>
+                <div className='user-nav-divider'>
+                </div>
+                <div className='user-nav-links'>
+                    <Link to=''>How to Use</Link>
+                    <Link to=''>About Us</Link>
+                </div>
+                <button className='user-nav-logout' onClick={logoutUser}>Log Out</button>
             </section>
 
             <div id='section-right'>
