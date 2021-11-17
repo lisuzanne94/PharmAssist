@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import MedicationListContainer from '../medication_list/medication_list_container';
 import CalendarContainer from '../calendar/calendar_container';
+import Map from '../map/map';
 
 
 const UserProfile = ({ logout, openModal, fetchMedications, medications, currentUserId }) => {
@@ -69,11 +70,12 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                     <h1 className='user-header'>Calendar</h1>
                     <div className='user-container-divider'>
                     </div>
-                    <CalendarContainer />
+                    {/* <CalendarContainer /> */}
                 </section>
             
                 <section ref={pharmacy} className='user-container'>
                     <h1 className='user-header'>Find a Pharmacy</h1>
+                    <Map />
                     <div className='user-container-divider'>
                     </div>
                 </section>
