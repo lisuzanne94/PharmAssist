@@ -26,7 +26,7 @@ class DrugInfo extends React.Component {
         return (
             <div>
                 {this.state.data.results ? (
-                    this.state.data.results[0].indications_and_usage[0].slice(0, 600)
+                    `${this.state.data.results[0].indications_and_usage[0].slice(0, 600)}...`
                     ) : null}
                 {this.state.error ? this.state.error : null}
             </div>
