@@ -6,6 +6,10 @@ class Calendar extends React.Component {
     super(props)
   }
 
+  componentDidMount () {
+    
+  }
+
   state = {
     dateContext: moment(),
     today: moment()

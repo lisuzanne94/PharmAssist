@@ -63,7 +63,7 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                     </span>
                     <div className='user-container-divider'>
                     </div>
-                    <MedicationListContainer medications={medications} />
+                    <MedicationListContainer medications={medications} currentUserId={currentUserId} />
                 </section>
 
                 <section ref={calendar} className='user-container'>

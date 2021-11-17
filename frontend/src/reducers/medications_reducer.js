@@ -1,7 +1,8 @@
 import {
     RECEIVE_USER_MEDICATIONS,
     RECEIVE_MEDICATION,
-    REMOVE_MEDICATION
+    REMOVE_MEDICATION,
+    CLEAR_MEDICATIONS
 } from "../actions/medication_actions";
 
 const MedicationsReducer = (prevState = {}, action) => {
@@ -20,6 +21,8 @@ const MedicationsReducer = (prevState = {}, action) => {
         case REMOVE_MEDICATION:
             delete nextState[action.medId]
             return nextState
+        case CLEAR_MEDICATIONS:
+            return {};
         default:
             return prevState;
     }

@@ -4,6 +4,7 @@ export const RECEIVE_USER_MEDICATIONS = 'RECEIVE_USER_MEDICATIONS';
 export const RECEIVE_MEDICATION = 'RECEIVE_MEDICATION';
 export const REMOVE_MEDICATION = 'REMOVE_MEDICATION';
 export const RECEIVE_MEDICATION_ERRORS = 'RECEIVE_MEDICATION_ERRORS';
+export const CLEAR_MEDICATIONS = 'CLEAR_MEDICATIONS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const receiveUserMedications = medications => ({
@@ -24,6 +25,10 @@ export const removeMedication = medId => ({
 export const receiveErrors = errors => ({
     type: RECEIVE_MEDICATION_ERRORS,
     errors
+});
+
+export const clearMedications = () => ({
+    type: CLEAR_MEDICATIONS
 });
 
 export const clearErrors = () => ({
