@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import MedicationListContainer from '../medication_list/medication_list_container';
 import CalendarContainer from '../calendar/calendar_container';
 import Map from '../map/map';
@@ -58,7 +57,7 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                     <span>
                         <h1 className='user-header'>Medication List</h1>
                         <div className='add-button tooltip'>
-                            <button className='plus-sign' onClick={() => openModal('createMedication')}>+</button>
+                            <button className='plus-sign' onClick={() => openModal({type: 'createMedication'})}>+</button>
                             <span className='tooltiptext'>Add medication regimen</span>
                         </div>
                     </span>
@@ -70,7 +69,6 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                 <section ref={calendar} className='user-container'>
                     <h1 className='user-header'>Calendar</h1>
                     <div className='user-container-divider'>
-                        <CalendarContainer />
                     </div>
                     {/* <CalendarContainer /> */}
                 </section>

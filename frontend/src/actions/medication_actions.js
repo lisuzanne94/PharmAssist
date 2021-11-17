@@ -62,8 +62,8 @@ export const createMedication = data => dispatch => (
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
-export const editMedication = medId => dispatch => (
-    APIUtil.editMedication(medId)
+export const editMedication = (data) => dispatch => (
+    APIUtil.editMedication(data)
         .then(medication => {
             dispatch(receiveMedication(medication));
             dispatch(clearErrors());

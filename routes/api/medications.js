@@ -57,7 +57,7 @@ router.patch('/:id',
     passport.authenticate('jwt', { session: false }),
     async (req, res) => {
         try {
-            const medication = await Medication.findOne({ id: req.params.id })
+            const medication = await Medication.findOne({ _id: req.params.id })
 
             if (req.body.brandName) {
                 medication.brandName = req.body.brandName
@@ -94,7 +94,7 @@ router.delete('/:id',
     passport.authenticate('jwt', { session: false }),
     async (req, res) => {
         try {
-            await Medication.deleteOne({ id: req.params.id })
+            await Medication.deleteOne({ _id: req.params.id })
             res.status(204).send()
         } catch {
             res.status(404).json({ nomedicationfound: 'No medication found with that ID' })

@@ -16,7 +16,6 @@ const App = () => (
     <div>
         <Modal />
         <NavBarContainer />
-
         <Switch>
             <AuthRoute exact path='/' component={Splash} />
             <AuthRoute exact path='/login' component={LoginFormContainer} />

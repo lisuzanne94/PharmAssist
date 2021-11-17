@@ -22,9 +22,10 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
     //     }
     // }, []);
 
-    const handleSubmit = () => (
-        createMedication(state)
-    )
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        createMedication(state).then(closeModal())
+    }
 
     const update = field => {
         return event => {   
