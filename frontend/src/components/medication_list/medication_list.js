@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { fetchMedications } from "../../actions/medication_actions";
+import Modal from "../modal/modal";
 
-const MedicationList = ({ medications, currentUserId, fetchMedications }) => {
+const MedicationList = ({ medications, openModal }) => {
 
 
     return (
@@ -9,7 +9,7 @@ const MedicationList = ({ medications, currentUserId, fetchMedications }) => {
             <ul>
                 {
                     medications ? Object.values(medications).map((medication, i) => (
-                        <li key={i}>
+                        <li key={i} onClick={() => openModal({ type: 'getDrugInfo' })}>
                             {medication.brandName} {medication.strength}mg
                         </li>
                     )) : null
