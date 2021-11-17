@@ -1,45 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { withRouter } from "react-router";
 
-// import { Loader } from '@googlemaps/js-api-loader';
-// import GoogleMapReact from 'google-map-react';
-
-
-// class Map extends React.Component {
-//     initMap() {
-//         let map;
-
-//         const loader = new Loader({
-//             apiKey: "AIzaSyDdZPQk6y4-kxSHKi8pbNDPHlQ2K0CnXC4",
-//             version: "weekly"
-//         });
-
-//         loader.load().then(() => {
-//             map = new window.google.maps.Map(
-//                 document.getElementById('map'), {
-//                     center: { lat: 40.7477, lng: -73.9869}, 
-//                     zoom: 15
-//                 }
-//             );
-//         })
-//     }
-
-//     render() {
-//         return(
-//             // <div className="map" style={{ height: '75vh', width: '80%' }}>
-//             //     <GoogleMapReact
-//             //         bootstrapURLKeys={{ key: 'AIzaSyDdZPQk6y4-kxSHKi8pbNDPHlQ2K0CnXC4' }}
-//             //         defaultCenter={{lat: 40.7477, lng: -73.9869}}
-//             //         defaultZoom={15}
-//             //     />
-//             // </div>
-//             <div id="map" style={{ height: '75vh', width: '80%' }}>
-
-//             </div>
-//         )
-//     }
-// }
-
 const Map = () => {
     // const [state, setState] = useState({ 
     //     map: {}, 
@@ -77,15 +38,6 @@ const Map = () => {
                 fields: ['name', 'formatted_address', 'opening_hours', 'geometry']
             };
     
-            const createMarker = place => {
-                let marker = new window.google.maps.Marker({
-                    map,
-                    position: place.geometry.location,
-                    animation: window.google.maps.Animation.DROP
-                });
-                // window.google.maps.event
-            }
-    
             const cb = (results, status) => {
                 if (status === window.google.maps.places.PlacesServiceStatus.OK) {
                     for (let i = 0; i < results.length; i++) {
@@ -94,6 +46,18 @@ const Map = () => {
                     }
                 }
             };
+
+            const createMarker = place => {
+                let marker = new window.google.maps.Marker({
+                    map,
+                    position: place.geometry.location,
+                    animation: window.google.maps.Animation.DROP
+                });
+                marker.addListener("click", (() => {
+                    infoWindow.setContent(place.name);
+                    infoWindow.open(map, marker);
+                }))
+            }
     
             const service = new window.google.maps.places.PlacesService(map);
             service.textSearch(request, cb);
