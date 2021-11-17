@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { fetchMedications } from "../../actions/medication_actions";
 
-const MedicationList = ({ medications }) => {
+const MedicationList = ({ medications, currentUserId, fetchMedications }) => {
 
 
     return (
