@@ -23,7 +23,7 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
     // }, []);
 
     const handleSubmit = () => (
-        createMedication(state).then(closeModal())
+        createMedication(state)
     )
 
     const update = field => {
@@ -37,6 +37,14 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
 
     return (
         <div>
+            {
+                errors ? errors.map((error, i) => (
+                    <li key={i}>
+                        {error}
+                    </li>
+                )) : null
+            }
+
             <form onSubmit={handleSubmit}>
                 <h1>Brand Name</h1>
                 <input type="text" value={state.brandName} onChange={update('brandName')}/>

@@ -46,3 +46,31 @@
 .splash-contact {
     background-color: rgb(134,168,115);
 }
+
+.welcome-msg {
+    text-align: center;
+    font-weight: 400;
+    animation: slideup 3s;
+    white-space: nowrap;
+    background: linear-gradient(270deg, rgba(165,183,204,1) 0%, rgba(255,255,255,1) 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pharmassist-title {
+    font-family: $sec-font;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        margin-top: 30%;
+    }
+
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}

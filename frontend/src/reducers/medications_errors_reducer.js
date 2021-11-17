@@ -10,7 +10,7 @@ const MedicationsErrorsReducer = (state = _nullErrors, action) => {
 
     switch (action.type) {
         case RECEIVE_MEDICATION_ERRORS:
-            return action.errors;
+            return Object.values(action.errors);
         case CLEAR_ERRORS:
             return _nullErrors;
         default:
