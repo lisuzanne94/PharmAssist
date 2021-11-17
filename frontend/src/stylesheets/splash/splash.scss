@@ -62,7 +62,7 @@
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 500;
-    letter-spacing: 8px;
+    letter-spacing: 1px;
     margin-top: 20px;
     background: rgb(53, 80, 112);
     position: relative;
@@ -72,8 +72,6 @@
 .assist {
     color: #a5b7cc;
 }
-
-
 
 @keyframes text {
     0% {
@@ -85,7 +83,7 @@
         margin-top: -40px;
     }
     85% {
-        letter-spacing: 8px;
+        letter-spacing: 1px;
         margin-top: -40px;
     }
 }
