@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import MedicationListContainer from '../medication_list/medication_list_container';
 import CalendarContainer from '../calendar/calendar_container';
+
 
 const UserProfile = ({ logout, openModal, fetchMedications, medications, currentUserId }) => {
     const logoutUser = (e) => {
@@ -61,12 +63,7 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                     </span>
                     <div className='user-container-divider'>
                     </div>
-                    <ul className='user-medication-list'>
-                        <li className='user-medication-list-item'>Amlodipine 10mg</li>
-                        <li className='user-medication-list-item'>Carvedilol 12.5mg</li>
-                        <li className='user-medication-list-item'>Amoxicillin 500mg</li>
-                        <li className='user-medication-list-item'>Sertraline 50mg</li>
-                    </ul>
+                    <MedicationListContainer medications={medications} />
                 </section>
 
                 <section ref={calendar} className='user-container'>
