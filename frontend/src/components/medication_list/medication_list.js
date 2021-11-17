@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Modal from "../modal/modal";
 
-const MedicationList = ({ medications, openModal }) => {
+
+const MedicationList = ({ medications, deleteMedication, openModal }) => {
 
 
     return (
@@ -11,6 +11,8 @@ const MedicationList = ({ medications, openModal }) => {
                     medications ? Object.values(medications).map((medication, i) => (
                         <li key={i}>
                             <span onClick={() => openModal({ type: 'getDrugInfo', medication: medication })}>{medication.brandName}</span> {medication.strength}mg
+                            <input type="submit" value="Update" onClick={() => openModal({type: 'updateMedication', medication: medication})} />
+                            <input type="submit" value="Delete" onClick={() => deleteMedication(medication._id) } />
                         </li>
                     )) : null
                 }

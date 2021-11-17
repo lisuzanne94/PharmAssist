@@ -5,7 +5,8 @@ class DrugInfo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: {}
+            data: {},
+            errors: ''
         }
     }
 
@@ -15,26 +16,18 @@ class DrugInfo extends React.Component {
 
     logData = brandName => {
         let data = axios.get(`https://api.fda.gov/drug/label.json?search=openfda.brand_name:${brandName}`)
-            .then(resp => this.setState({data: resp.data})).catch(err => console.log(err))
+            .then(resp => this.setState({data: resp.data})).catch(err => this.setState({errors: err}))
         return data;
     }
 
-    //  drugInfo = () => (this.state.data.results && this.state.data.results[0].length > 150)  ? this.state.data.results[0].indications_and_usage[0].slice(0, 150) : null
-
-
     render() {
-        // this.logData()
-        // console.log(this.state.data);
-        // this.logData()
-        // console.log(this.logData().results)
-        // console.log(this.state.data.results ? this.state.data.results[0].information_for_patients : null)
-        // console.log(drugInfo() ? drugInfo().length : null)
-        // console.log(this.props.medication ? this.props.medication : null)
+        console.log(this.state.errors ? this.state.errors : null)
         return (
             <div>
                 {this.state.data.results ? (
                     this.state.data.results[0].indications_and_usage[0].slice(0, 600)
                     ) : null}
+                {/* {this.state.errors ? this.state.errors : null} */}
             </div>
         )
     }

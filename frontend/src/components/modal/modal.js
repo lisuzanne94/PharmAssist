@@ -1,8 +1,9 @@
 import React from 'react';
-import { closeModal, openModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import MedicationCreateContainer from '../medication_form/medication_create_container';
 import DrugInfoContainer from '../drug-info/drug_info_container';
+import MedicationEditContainer from '../medication_form/medication_edit_container';
 
 
 function Modal({ modal, closeModal }) {
@@ -33,6 +34,16 @@ function Modal({ modal, closeModal }) {
           </div>
         </div>
         )
+      break;
+    case 'updateMedication':
+      component = <MedicationEditContainer />;
+      modalDiv = (
+        <div className="med-form-modalbg" onClick={closeModal}>
+          <div className="med-form-modalc" onClick={e => e.stopPropagation()}>
+            {component}
+          </div>
+        </div>
+      )
       break;
     default:
       return null;
