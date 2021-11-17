@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MedicationListContainer from '../medication_list/medication_list_container';
 import CalendarContainer from '../calendar/calendar_container';
+import DrugInfo from '../drug-info/drug_info';
 
 
 const UserProfile = ({ logout, openModal, fetchMedications, medications, currentUserId }) => {
@@ -22,6 +23,7 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
 
     return (
         <div id='user-profile'>
+            <DrugInfo />
             <section id='user-nav'>
                 <div className='user-nav-header'>
                     <h2 className='pharmassist-header'>
