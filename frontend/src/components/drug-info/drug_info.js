@@ -10,7 +10,7 @@ class DrugInfo extends React.Component {
     }
 
     componentDidMount () {
-        this.logData('LIPITOR')
+        this.logData(this.props.medication.brandName)
     }
 
     logData = brandName => {
