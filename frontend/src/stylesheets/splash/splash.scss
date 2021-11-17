@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 98vw;
+    width: 100vw;
     height: 100vh;
     scroll-snap-align: start;
     color: white;
@@ -47,21 +47,65 @@
     background-color: rgb(134,168,115);
 }
 
-.welcome-msg {
+.welcome-container {
+    display: block;
     text-align: center;
-    font-weight: 400;
-    animation: slideup 3s;
-    white-space: nowrap;
-    background: linear-gradient(270deg, rgba(165,183,204,1) 0%, rgba(255,255,255,1) 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+}
+
+.welcome-to {
+    font-size: 2em;
 }
 
 .pharmassist-title {
+    display: block;
     font-family: $sec-font;
     text-transform: uppercase;
-    font-size: 1.5em;
+    font-size: 4em;
+    font-weight: 500;
+    letter-spacing: 8px;
+    margin-top: 20px;
+    background: rgb(53, 80, 112);
+    position: relative;
+    animation: text 3s 1;
 }
+
+.assist {
+    color: #a5b7cc;
+}
+
+
+
+@keyframes text {
+    0% {
+        color: rgb(53, 80, 112);
+        margin-top: -40px;
+    }
+    30% {
+        letter-spacing: 20px;
+        margin-top: -40px;
+    }
+    85% {
+        letter-spacing: 8px;
+        margin-top: -40px;
+    }
+}
+
+
+// .welcome-msg {
+//     text-align: center;
+//     font-weight: 400;
+//     animation: slideup 3s;
+//     white-space: nowrap;
+//     background: linear-gradient(270deg, rgba(165,183,204,1) 0%, rgba(255,255,255,1) 100%);
+//     background-clip: text;
+//     -webkit-text-fill-color: transparent;
+// }
+
+// .pharmassist-title {
+//     font-family: $sec-font;
+//     text-transform: uppercase;
+//     font-size: 1.5em;
+// }
 
 @keyframes fadein {
     from {
