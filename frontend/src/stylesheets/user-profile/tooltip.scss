@@ -1,0 +1,36 @@
+.tooltip {
+    position: relative;
+    display: inline-block;   
+
+    .tooltiptext {
+        opacity: 0;
+        width: 150px;
+        font-size: 16px;
+        background: $color;
+        color: #fff;
+        text-align: center;
+        padding: 8px 10px;
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 50%;
+        margin-left: -140px;
+        transition: ease-in-out 0.2s;
+        &:after {
+            content: " ";
+            position: absolute;
+            bottom: 100%;
+            left: 82%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent $color transparent;
+        }
+    }           
+    
+    &:hover {
+        .tooltiptext {
+            opacity: 1
+        }
+    }
+}

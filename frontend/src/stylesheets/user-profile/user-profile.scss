@@ -1,3 +1,5 @@
+@import './tooltip.scss';
+
 #user-profile {
     position: relative;
     display: flex;
@@ -18,13 +20,20 @@
             top: 30px;
             height: auto;
             .pharmassist-header {
-                color: #fff;
-                font-family: $sec-font;
-                font-size: 35px;
-                line-height: 45px;
-                letter-spacing: 1px;
-                font-weight: 300;
-                text-transform:uppercase;
+                button {
+                    color: #fff;
+                    font-family: $sec-font;
+                    font-size: 35px;
+                    line-height: 45px;
+                    letter-spacing: 1px;
+                    font-weight: 300;
+                    text-transform:uppercase;
+                    background: none;
+                    border: none;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
                 .assist {
                     color: #a5b7cc;
                 }
@@ -35,7 +44,14 @@
         }
         .user-nav-links {
             @include nav-links;
-            a {
+            button {
+                text-align: left;
+                width: 100%;
+                font-size: 20px;
+                font-weight: 300;
+                letter-spacing: 1px;
+                background: none;
+                border: none;
                 border-left: 5px solid transparent;
                 &:after {
                     content: '';
@@ -45,6 +61,7 @@
                     transition: transform ease-in-out 0.25s;
                 }
                 &:hover {
+                    cursor: pointer;
                     padding-left: 35px;
                     border-left: 5px solid rgba(255, 255, 255, 0.548);
                     background: rgba(255, 255, 255, 0.062);
@@ -58,19 +75,25 @@
         .other-nav-links {
             @include nav-links;
             margin-top: 40px;
-            font-size: 18px;
             margin-left: 50px;
-            a {
+            button {
                 display: inline-block;
+                background: none;
+                border: none;
+                font-size: 18px;
+                font-weight: 300;
+                letter-spacing: 0.5px;
                 transition: ease 0.2s;
                 padding: 0;
                 @include scroll-underline;
                 &:after {
                     margin: -5px;
+                    border-color: #fff;
                     transform-origin: 100% 50%;
                     transition: transform cubic-bezier(0.215, 0.610, 0.355, 1) 0.3s;
                 }
                 &:hover {
+                    cursor: pointer;
                     &:after {
                         transform-origin: 0% 50%;
                     }
@@ -101,24 +124,37 @@
         right: 0;
         position: absolute;
         @include flex-centered-column;
-
         .main-container {
             @include section-container;
             justify-content: center;
-            background: rgba(53,80,112);
 
-            .main-page {
-                color: #fff;
+            h1.main-page {
                 text-transform: uppercase;
                 font-size: 60px;
                 font-family: $sec-font;
+                margin-bottom: 20px;
                 animation-name: slidedown;
-                animation-duration: 2s;
+                animation-duration: 1.5s;
+            }
+
+            .left-button {
+                @include main-button;
+                margin-right: 15px;
+            }
+
+            .right-button {
+                @include main-button;
+                animation-delay: 2.4s;
+                background: #fff;
+                color: $color;
+                &:hover {
+                    background-color: rgb(241, 241, 241);
+                }
             }
 
             @keyframes slidedown {
                 from {
-                    margin-top: -50%;
+                    margin-top: -30%;
                     opacity: 0;
                 }
 
@@ -127,14 +163,42 @@
                     opacity: 1;
                 }
             }
+
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
         }
         
         .user-container {
             @include section-container;
+            scroll-snap-align: start;
 
             .user-header {
                 @include section-header;
                 @include scroll-underline;
+            }
+
+            .add-button {
+                top: 18px;
+                right: 10%;
+                position: absolute;
+            }
+
+            .plus-sign {
+                background: none;
+                border: none;
+                display: inline-block;
+                font-size: 40px;
+                transition: ease-out 0.1s;
+                &:hover {
+                    cursor: pointer;
+                }
             }
 
             .user-medication-list {
@@ -142,28 +206,10 @@
             }
 
             .user-medication-list-item {
-                color: #fff;
                 font-size: 20px;
                 padding-left: 10px;
                 line-height: 40px;
             }
-        }
-
-        .scroll-snap {
-            scroll-snap-type: y mandatory;
-            overflow-y: auto;
-        }
-
-        section:nth-child(2) {
-            background: rgb(109,89,122);
-        }
-
-        section:nth-child(3) {
-            background: rgb(156, 68, 87);
-        }
-
-        section:nth-child(4) {
-            background: rgb(187, 83, 91);
         }
     }
 }
