@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MedicationListContainer from '../medication_list/medication_list_container';
 import CalendarContainer from '../calendar/calendar_container';
+import Map from '../map/map';
 
 
 const UserProfile = ({ logout, openModal, fetchMedications, medications, currentUserId }) => {
@@ -71,11 +72,12 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                     <div className='user-container-divider'>
                         <CalendarContainer />
                     </div>
-                    <CalendarContainer />
+                    {/* <CalendarContainer /> */}
                 </section>
             
                 <section ref={pharmacy} className='user-container'>
                     <h1 className='user-header'>Find a Pharmacy</h1>
+                    <Map />
                     <div className='user-container-divider'>
                     </div>
                 </section>
