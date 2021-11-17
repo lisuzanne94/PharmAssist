@@ -1,14 +1,18 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import MedicationListContainer from '../medication_list/medication_list_container';
 import CalendarContainer from '../calendar/calendar_container';
 
-const UserProfile = ({ logout }) => {
+
+const UserProfile = ({ logout, openModal, fetchMedications, medications, currentUserId }) => {
     const logoutUser = (e) => {
         e.preventDefault();
         logout();
     };
 
     useEffect(() => {
-    window.history.scrollRestoration = 'manual'
+    window.history.scrollRestoration = 'manual';
+    fetchMedications(currentUserId);
   }, []);
 
     const main = useRef(null);
@@ -53,23 +57,19 @@ const UserProfile = ({ logout }) => {
                     <span>
                         <h1 className='user-header'>Medication List</h1>
                         <div className='add-button tooltip'>
-                            <button className='plus-sign'>+</button>
+                            <button className='plus-sign' onClick={() => openModal('createMedication')}>+</button>
                             <span className='tooltiptext'>Add medication regimen</span>
                         </div>
                     </span>
                     <div className='user-container-divider'>
                     </div>
-                    <ul className='user-medication-list'>
-                        <li className='user-medication-list-item'>Amlodipine 10mg</li>
-                        <li className='user-medication-list-item'>Carvedilol 12.5mg</li>
-                        <li className='user-medication-list-item'>Amoxicillin 500mg</li>
-                        <li className='user-medication-list-item'>Sertraline 50mg</li>
-                    </ul>
+                    <MedicationListContainer medications={medications} />
                 </section>
 
                 <section ref={calendar} className='user-container'>
                     <h1 className='user-header'>Calendar</h1>
                     <div className='user-container-divider'>
+                        <CalendarContainer />
                     </div>
                     <CalendarContainer />
                 </section>

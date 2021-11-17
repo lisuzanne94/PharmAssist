@@ -10,7 +10,10 @@ const MedicationsReducer = (prevState = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_USER_MEDICATIONS:
-            return action.medications.data;
+            action.medications.data.forEach(medication => (
+                nextState[medication._id] = medication
+            ));
+            return nextState;
         case RECEIVE_MEDICATION:
             nextState[action.medication.data._id] = action.medication.data;
             return nextState;

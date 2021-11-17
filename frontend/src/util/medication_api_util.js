@@ -8,8 +8,8 @@ export const getMedication = medId => {
     return axios.get(`api/medications/${medId}`)
 }
 
-export const createMedication = medication => {
-    return axios.post('/api/medications/', medication)
+export const createMedication = data => {
+    return axios.post('/api/medications/', data)
 }
 
 export const editMedication = medId => {
