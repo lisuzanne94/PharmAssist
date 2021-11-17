@@ -4,7 +4,6 @@ import moment from 'moment';
 class Calendar extends React.Component {
   constructor(props) {
     super(props)
-
   }
 
   state = {
@@ -51,6 +50,29 @@ class Calendar extends React.Component {
       blankDays.push(<td key={i}>{""}</td>)
     }
 
+    // const userInputMedications = (
+    //   [{ userId: "6192062d29c17e3b912aad16", brandName: "Prozac", dose: "2", frequency: "2", strength: "10" },
+    //   { userId: "6192062d29c17e3b912aad16", brandName: "Zestril", dose: "1", frequency: "1", strength: "20" },
+    //   { userId: "6192062d29c17e3b912aad16", brandName: "Augmentin", dose: "1", frequency: "2", strength: "875", startDate: "2021-11-15T05:00:00.000Z", duration: "7" }]
+    // )
+
+    // const medsWithoutStartDate = userInputMedications.filter(medication => (!medication.startDate))
+    // // console.log(medsWithoutStartDate)
+    // const medsWithStartDate = userInputMedications.filter(medication => (medication.startDate))
+
+    const medsWithoutStartDate = this.props.medications.filter(medication => (!medication.startDate))
+    // console.log(medsWithoutStartDate)
+    const medsWithStartDate = this.props.medications.filter(medication => (medication.startDate))
+
+    medsWithStartDate.forEach(medication => {
+      medication["daysOnMeds"] = [];
+      let start = parseInt(medication.startDate.slice(8, 10))
+      let end = start + parseInt(medication.duration)
+      for (let day = start; day < end; day++) {
+        medication["daysOnMeds"].push(day)
+      }
+    })
+
     const daysInMonth = [];
     for (let day = 1; day <= this.daysInMonth(); day++) {
       const currentDay = parseInt(this.currentDay())
@@ -58,7 +80,39 @@ class Calendar extends React.Component {
       daysInMonth.push(<td key={day} className={className}>
         <div className="day-block">
           {day}
-          {day === 18 ? <span>Sertraline 50mg</span> : null}
+          {
+            medsWithoutStartDate.map((medication, i) => (
+              <div key={i} className="calendar-med-list">
+                {medication.brandName} {medication.strength} mg
+              </div>
+            ))
+          }
+          {/* {
+            medsWithStartDate.map((medication, i) => (
+              <div>
+                {
+                  day === parseInt(medication.startDate.slice(8, 10)) ? (
+                    <div>
+                      {medication.brandName} {medication.strength} mg
+                    </div>
+                  ) : null
+                }
+              </div>
+            ))
+          } */}
+          {
+            medsWithStartDate.map((medication, i) => (
+              <div key={i}>
+                {
+                  medication.daysOnMeds.includes(day) ? (
+                    <div>
+                      {medication.brandName} {medication.strength} mg
+                    </div>
+                  ) : null
+                }
+              </div>
+            ))
+          }
         </div>
       </td>)
 
@@ -93,7 +147,7 @@ class Calendar extends React.Component {
       );
     });
 
-    console.log(rowEls ? rowEls : null)
+    // console.log(rowEls ? rowEls : null)
 
     return (
       <div>
