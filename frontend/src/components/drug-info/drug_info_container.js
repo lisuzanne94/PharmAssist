@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import DrugInfo from "./drug_info";
 
 const mSTP = (state, ownProps) => ({
-    medications: ownProps.medications
+    medication: ownProps.medication
 });
 
 const mDTP = dispatch => ({

@@ -2,7 +2,7 @@ import React from 'react';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import MedicationCreateContainer from '../medication_form/medication_create_container';
-import DrugInfo from '../drug-info/drug_info';
+import DrugInfoContainer from '../drug-info/drug_info_container';
 
 
 function Modal({ modal, closeModal }) {
@@ -12,24 +12,35 @@ function Modal({ modal, closeModal }) {
     return null;
   }
   let component;
+  let modalDiv;
   switch (modal.type) {
     case 'createMedication':
       component = <MedicationCreateContainer />;
+      modalDiv = (
+        <div className="med-form-modalbg" onClick={closeModal}>
+          <div className="med-form-modalc" onClick={e => e.stopPropagation()}>
+            {component}
+          </div>
+        </div>
+      )
       break;
     case 'getDrugInfo':
-      component = <DrugInfo medication={modal.medication} />;
+      component = <DrugInfoContainer medication={modal.medication} />;
+      modalDiv = (
+        <div className="drug-info-modalbg" onClick={closeModal}>
+          <div className="drug-info-modalc" onClick={e => e.stopPropagation()}>
+            {component}
+          </div>
+        </div>
+        )
       break;
     default:
       return null;
   }
 
-  console.log(modal.medication)
-
   return (
-       <div className="modelbg" onClick={closeModal}>
-      <div className="modelc" onClick={e => e.stopPropagation()}>
-        { component }
-      </div>
+    <div>
+      {modalDiv}
     </div>
   );
 }

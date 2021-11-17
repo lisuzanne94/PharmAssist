@@ -9,8 +9,8 @@ const MedicationList = ({ medications, openModal }) => {
             <ul>
                 {
                     medications ? Object.values(medications).map((medication, i) => (
-                        <li key={i} onClick={() => openModal({ type: 'getDrugInfo', medication: medication })}>
-                            {medication.brandName} {medication.strength}mg
+                        <li key={i}>
+                            <span onClick={() => openModal({ type: 'getDrugInfo', medication: medication })}>{medication.brandName}</span> {medication.strength}mg
                         </li>
                     )) : null
                 }
