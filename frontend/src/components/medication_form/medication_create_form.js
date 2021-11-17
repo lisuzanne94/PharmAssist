@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SearchBar from "../searchbar/searchbar";
 
 
 const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModal }) => {
@@ -48,8 +49,10 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
             <h1 className='add-med-header'>Add New Medication</h1><br/><br/>
             <form className='modal-form' onSubmit={handleSubmit}>
                 <h1>Brand Name</h1>
-                <input type="text" value={state.brandName} onChange={update('brandName')}/>
-                <br /><br/>
+                <div className='search-container'>
+                <SearchBar value={state.brandName} onChange={update('brandName')}/>
+                </div>
+                <br />
                 <h1>Dose</h1>
                 <input type="text" value={state.dose} onChange={update('dose')}/>
                 <br /><br/>
