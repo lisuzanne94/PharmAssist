@@ -25,6 +25,7 @@ class DrugInfo extends React.Component {
     render() {
         return (
             <div>
+                <div className="drug-info-brand">{this.props.medication.brandName}</div>
                 {this.state.data.results ? (
                     `${this.state.data.results[0].indications_and_usage[0].slice(0, 600)}...`
                     ) : null}
