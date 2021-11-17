@@ -12,8 +12,8 @@ export const createMedication = data => {
     return axios.post('/api/medications/', data)
 }
 
-export const editMedication = medId => {
-    return axios.patch(`/api/medications/${medId}`)
+export const editMedication = (data) => {
+    return axios.patch(`/api/medications/${data._id}`, data)
 }
 
 export const deleteMedication = medId => {
