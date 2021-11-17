@@ -1,10 +1,14 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MedicationListContainer from '../medication_list/medication_list_container';
 import CalendarContainer from '../calendar/calendar_container';
+import AboutUs from '../about/about_us';
 
 
 const UserProfile = ({ logout, openModal, fetchMedications, medications, currentUserId }) => {
+    const [display, setDisplay] = useState(false);
+    const [classState, setClassState] = useState('');
+
     const logoutUser = (e) => {
         e.preventDefault();
         logout();
@@ -14,6 +18,16 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
     window.history.scrollRestoration = 'manual';
     fetchMedications(currentUserId);
   }, []);
+
+    const toggleDisplay = () => {
+        if (display) {
+            setDisplay(false);
+            setClassState('display-false');
+        } else {
+            setDisplay(true);
+            setClassState('member-profiles display-true');
+        }
+    }
 
     const main = useRef(null);
     const medlist = useRef(null);
@@ -39,10 +53,16 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                 </div>
                 <div className='other-nav-links'>
                     <button>How to Use</button><br/>
-                    <button>About Us</button>
+                    <button onClick={() => toggleDisplay()}>About Us</button>
                 </div>
                 <button className='user-nav-logout' onClick={logoutUser}>Log Out</button>
             </section>
+
+            {display ?
+            <div>
+                <span className='close-about-us' onClick={() => toggleDisplay()}>✖</span>
+                <AboutUs classState={classState} />
+            </div> : null}
 
             <div id='section-right'>
                 <section ref={main} className='main-container'>
@@ -71,7 +91,6 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                     <div className='user-container-divider'>
                         <CalendarContainer />
                     </div>
-                    <CalendarContainer />
                 </section>
             
                 <section ref={pharmacy} className='user-container'>

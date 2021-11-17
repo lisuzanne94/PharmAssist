@@ -36,7 +36,7 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
     }
 
     return (
-        <div>
+        <div className='modal-container'>
             {
                 errors ? errors.map((error, i) => (
                     <li key={i}>
@@ -45,25 +45,26 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
                 )) : null
             }
 
-            <form onSubmit={handleSubmit}>
+            <h1 className='add-med-header'>Add New Medication</h1><br/><br/>
+            <form className='modal-form' onSubmit={handleSubmit}>
                 <h1>Brand Name</h1>
                 <input type="text" value={state.brandName} onChange={update('brandName')}/>
-                <br />
+                <br /><br/>
                 <h1>Dose</h1>
                 <input type="text" value={state.dose} onChange={update('dose')}/>
-                <br />
+                <br /><br/>
                 <h1>Frequency</h1>
                 <input type="text" value={state.frequency} onChange={update('frequency')}/>
-                <br />
+                <br /><br/>
                 <h1>Strength</h1>
                 <input type="text" value={state.strength} onChange={update('strength')}/>
-                <br />
+                <br /><br/>
                 <h1>Duration</h1>
                 <input type="text" value={state.duration} onChange={update('duration')}/>
-                <br />
+                <br /><br/>
                 <h1>Start Date</h1>
                 <input type="date" value={state.startDate} onChange={update('startDate')}/>
-                <br />
+                <br /><br/>
                 <input type='submit' value='Submit' />
             </form>
         </div>
