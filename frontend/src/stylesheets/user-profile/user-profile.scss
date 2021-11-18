@@ -132,6 +132,15 @@
             scroll-snap-align: start;
             justify-content: center;
 
+            .main-border-box {
+                width: 80%;
+                height: 40%;
+                border: 5px solid $color;
+                animation-name: enlarge;
+                animation-duration: 1.5s;
+                position: absolute;
+            }
+
             h1.main-page {
                 text-transform: uppercase;
                 font-size: 60px;
@@ -148,7 +157,7 @@
 
             .right-button {
                 @include main-button;
-                animation-delay: 2.4s;
+                animation-delay: 2s;
                 background: #fff;
                 color: $color;
                 &:hover {
@@ -167,6 +176,16 @@
                 to {
                     margin-top: 0%;
                     opacity: 1;
+                }
+            }
+
+            @keyframes enlarge {
+                from {
+                    transform: scale(0);
+                }
+
+                to {
+                    transform: scale(1);
                 }
             }
         }

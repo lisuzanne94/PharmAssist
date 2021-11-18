@@ -67,6 +67,7 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
 
             <div id='section-right'>
                 <section ref={main} className='main-container'>
+                    <div className='main-border-box'></div>
                     <h1 className='main-page'>Welcome, {user.firstName} {user.lastName.slice(0,1)}.</h1><br/>
                     <span>
                         <button className='left-button'>Add new medication regimen</button>
