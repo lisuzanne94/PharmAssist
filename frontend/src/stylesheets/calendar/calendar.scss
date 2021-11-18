@@ -25,13 +25,36 @@
     &:hover {
         background: #eee;
     }
+    overflow-y: scroll;
+    scrollbar-width: none;
+
 }
 
 .weekday {
+    
     background-color: #eeeeee;
     line-height: 30px;
 }
 
-.current-day {
+.day {
+    margin: auto;
+    padding: 0%;
+    width: 140px;
+    height: 90px;
+    
+}
+
+.day.current-day {
     background-color: rgb(240, 178, 178);
+}
+
+.calendar-med {
+    font-size: small;
+}
+
+.calendar-med-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left
 }

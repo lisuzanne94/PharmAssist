@@ -6,7 +6,8 @@ import { fetchMedications } from '../../actions/medication_actions';
 
 const mSTP = state => ({
     currentUserId: state.session.user.id,
-    medications: state.entities.medications
+    medications: state.entities.medications,
+    user: state.session.user
 })
 
 const mDTP = dispatch => ({

@@ -3,7 +3,7 @@ import MedicationListContainer from '../medication_list/medication_list_containe
 import CalendarContainer from '../calendar/calendar_container';
 
 
-const UserProfile = ({ logout, openModal, fetchMedications, medications, currentUserId }) => {
+const UserProfile = ({ logout, openModal, fetchMedications, medications, currentUserId, user }) => {
     const logoutUser = (e) => {
         e.preventDefault();
         logout();
@@ -45,7 +45,7 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
 
             <div id='section-right'>
                 <section ref={main} className='main-container'>
-                    <h1 className='main-page'>Welcome, Current User!</h1><br/>
+                    <h1 className='main-page'>Welcome, {user.firstName} {user.lastName.slice(0,1)}.</h1><br/>
                     <span>
                         <button className='left-button'>Add new medication regimen</button>
                         <button className='right-button' onClick={() => {medlist.current.scrollIntoView({ behavior: 'smooth' })}}>Current list of medications</button>

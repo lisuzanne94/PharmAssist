@@ -14,7 +14,8 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.json({
         id: req.user.id,
-        email: req.user.email
+        email: req.user.email,
+        firstName: req.user.firstName
     });
 })
 
@@ -69,7 +70,7 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        const payload = {id: user.id, email: user.email};   
+                        const payload = {id: user.id, email: user.email, firstName: user.firstName, lastName: user.lastName};   
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
