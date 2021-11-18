@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-const Splash = ({ login }) => {
+const Splash = () => {
 
     const whatIs = useRef(null);
     const medlist = useRef(null);
@@ -30,23 +30,19 @@ const Splash = ({ login }) => {
             </div>
             
 
-
-            
-            
-
             <div className="splash-med-list element-container" ref={medlist}>
-                <h1>MEDLIST FEATURE</h1>
+                <h1>Add prescriptions to your medication list</h1>
                 <div className="arrow" onClick={() => {calendar.current.scrollIntoView({ behavior: 'smooth' })}}></div>
             </div>
             
 
             <div className="splash-calendar element-container" ref={calendar}>
-                <h1>CALENDAR FEATURE</h1>
+                <h1>Keep track of all your medications</h1>
                 <div className="arrow" onClick={() => {map.current.scrollIntoView({ behavior: 'smooth' })}}></div>
             </div>
 
             <div className="splash-map element-container" ref={map}>
-                <h1>MAP FEATURE</h1>
+                <h1>Find pharmacies close to you</h1>
                 <div className="arrow" onClick={() => {questions.current.scrollIntoView({ behavior: 'smooth' })}}></div>
             </div>
 
