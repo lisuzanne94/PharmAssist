@@ -59,7 +59,7 @@
         display: block;
         content: '';
         margin-top: 10px;
-        border-bottom: 1px solid $color;
+        border-bottom: 1px solid rgba(53, 80, 112,1);
         transform: scaleX(0);
         transition: transform ease-in-out 0.3s;
     }

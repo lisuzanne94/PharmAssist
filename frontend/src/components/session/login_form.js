@@ -64,7 +64,6 @@ const LoginForm = ({ errors, login }) => {
                     </div>
                 </form>
             </div>
-            <button onClick={e => loginDemo(e)} >Demo User</button>
         </div>
     )
 }
