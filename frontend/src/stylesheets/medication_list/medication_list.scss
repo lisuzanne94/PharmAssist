@@ -12,6 +12,7 @@ $asparagus: #86A873;
 
 .med-list-item {
     display: flex;
+    position: relative;
     font-size: 20px;
     animation: drop-in 3s;
 }
@@ -20,71 +21,40 @@ $asparagus: #86A873;
     cursor: pointer;
 }
 
-.med-list-text {
-    background: none;
-    border: 0;
-    box-sizing: border-box;
-    margin: 1em;
-    padding: 1em 2em;
-    border: inset 0 0 0 2px $pink;
-    position: relative;
-    vertical-align: middle;
-    transition: color 0.25s;
-
-        &::before, &::after {
-            box-sizing: inherit;
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid transparent;
-            width: 0;
-            height: 0;
-        }
-        &::before {
-            top: 0;
-            left: 0;
-        }
-        &::after {
-            botto: 0;
-            right: 0;
-        }
-        &:hover {
-            color: $pink
-        }
-        &:hover::before, &:hover:after {
-            width: 100%;
-            height: 100%;
-        }
-        &:hover::before {
-            border-top-color: $pink;
-            border-right-color: $pink;
-            transition: 
-                width 0.25s ease-out, height 0.25 ease-out 0.25s;
-        }
-        &:hover::after {
-            border-bottom-color: $pink;
-            border-left-color: $pink;
-            transition:
-                border-color 0s ease-out 0.5s,
-                width 0.25s ease-out 0.5s,
-                height 0.25s ease-out 0.75s;
-        }
+.med-list-name {
+    font-weight: 300;
 }
 
+.med-list-text {
+    width: 100%;
+    padding: 0.75em;
 
+    & .med-list-name {
+        transition: color 0.5s;
+    }
 
-.med-list-name {
-    font-weight: 400;
+    &:hover .med-list-name {
+        color: $asparagus;
+    }
 }
 
 .pill-icon {
-    color: rgb(109, 89, 122);
+    font-size: 24px;
 }
 
 .med-list-btns {
     visibility: hidden;
+    position: absolute;
+    right: -40%;
+    bottom: 25%;
+    & button {
+        background-color: white;
+    }
+    & button:hover {
+        cursor: pointer;
+    }
 }
+
 
 .med-list-item:hover .med-list-btns{
     visibility: visible;

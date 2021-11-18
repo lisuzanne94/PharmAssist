@@ -23,6 +23,7 @@ const MedicationList = ({ medications, deleteMedication, openModal }) => {
                                 <button onClick={() => openModal({type: 'updateMedication', medication: medication})}>
                                     <FontAwesomeIcon icon={faPen} /> Update
                                 </button>
+                                &nbsp;
                                 <button onClick={() => deleteMedication(medication._id) }>
                                     <FontAwesomeIcon icon={faTrash} /> Delete
                                 </button>
