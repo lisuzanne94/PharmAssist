@@ -5,8 +5,6 @@ const Splash = () => {
     return (
         <div className="splash-page-container">
             <div className="welcome-banner element-container">
-                {/* <figure>Image of pharmacist here??</figure> */}
-                {/* <h1 className="welcome-msg">Welcome to <span className='pharmassist-title'>Pharm<span className='assist'>Assist</span></span></h1> */}
                 <div className="welcome-container">
                     <span className="welcome-to">Welcome to</span>
                     <span className="pharmassist-title"><span>Pharm<span className="assist">Assist</span></span></span>

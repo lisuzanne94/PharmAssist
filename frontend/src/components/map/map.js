@@ -1,64 +1,66 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { withRouter } from "react-router";
 
 const Map = () => {
-    // const [state, setState] = useState({ 
-    //     map: {}, 
-    //     infoWindow, 
-    //     initPos: {
-    //         lat: 40.7477, 
-    //         lng: -73.9869
-    //     }
-    // })
-    // gets element reference
     const googleMapRef = useRef();
     
     useEffect(() => {
-        let initPos = {
-            lat: 40.7477, 
-            lng: -73.9869
-        }
         let map;
-        let infoWindow;
         const googleMapScript = document.createElement('script');
         googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDdZPQk6y4-kxSHKi8pbNDPHlQ2K0CnXC4&libraries=places`
         googleMapScript.async = true;
         window.document.body.appendChild(googleMapScript);
 
         const createMap = () => {
-            infoWindow = new window.google.maps.InfoWindow();
-    
             map = new window.google.maps.Map(googleMapRef.current, {
-                center: initPos,
+                center: {
+                    lat: 40.7477, 
+                    lng: -73.9869
+                },
                 zoom: 15,
             })
-    
+            
+            // Query google place API
             const request = {
                 query: 'pharmacy',
-                fields: ['name', 'formatted_address', 'opening_hours', 'geometry']
+                fields: ['name', 'formatted_address', 'geometry']
             };
-    
+            
+            let infoWindow;
+            
+            const createMarker = place => {
+                let marker = new window.google.maps.Marker({
+                    map,
+                    position: place.geometry.location,
+                    animation: window.google.maps.Animation.DROP,
+                });
+
+                const contentInfo =
+                    '<div id="info-container"><h1>' + 
+                    place.name + 
+                    '</h1><div id="info-address">' +
+                    place.formatted_address +
+                    '</div></div>';
+
+                infoWindow = new window.google.maps.InfoWindow();
+                
+                marker.addListener("click", (() => {
+                    infoWindow.setContent(
+                        contentInfo
+                    );
+                    infoWindow.open(map, marker);
+                }))
+            }
+            
             const cb = (results, status) => {
                 if (status === window.google.maps.places.PlacesServiceStatus.OK) {
                     for (let i = 0; i < results.length; i++) {
-                        let place = results[i];
+                        // let place = results[i];
                         createMarker(results[i]);
                     }
                 }
             };
 
-            const createMarker = place => {
-                let marker = new window.google.maps.Marker({
-                    map,
-                    position: place.geometry.location,
-                    animation: window.google.maps.Animation.DROP
-                });
-                marker.addListener("click", (() => {
-                    infoWindow.setContent(place.name);
-                    infoWindow.open(map, marker);
-                }))
-            }
-    
             const service = new window.google.maps.places.PlacesService(map);
             service.textSearch(request, cb);
     
@@ -77,27 +79,13 @@ const Map = () => {
         })
     }, []);
 
-
-    // const createMarker = (place) => {
-    //     if (!place.geometry || !place.geometry.location) return;
-
-    //     const marker = new window.google.maps.Marker({
-    //         map,
-    //         position: place.geometry.location
-    //     });
-
-    //     marker.addEventListener("click", () => {
-    //         infoWindow.setContent(place.name || '');
-    //         infoWindow.open(map);
-    //     });
-    // }
-
     return (
-        <div
-            id="map"        
-            ref={googleMapRef}
-            style={{ height: '75vh', width: '80%' }}
-        />
+        <div className="map-container">
+            <div
+                id="map"        
+                ref={googleMapRef}
+            />
+        </div>
     )
 }
 

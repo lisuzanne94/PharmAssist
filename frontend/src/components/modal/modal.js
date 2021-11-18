@@ -34,6 +34,7 @@ function Modal({ modal, closeModal }) {
       modalDiv = (
         <div className="drug-info-modalbg" onClick={closeModal}>
           <div className="drug-info-modalc" onClick={e => e.stopPropagation()}>
+            <div className="close-modal-btn" onClick={() => closeModal()}>x</div>
             {component}
           </div>
         </div>

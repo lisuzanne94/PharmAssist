@@ -1,3 +1,22 @@
+.map-container {
+    height: 75vh;
+    width: 85%;
+}
+
 #map {
     z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+#info-container {   
+    font-family: $font;
+    h1 {
+        color: #355070;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    #info-address {
+        font-size: 12px;
+    }
 }
