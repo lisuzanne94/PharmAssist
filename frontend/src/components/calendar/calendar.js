@@ -105,7 +105,6 @@ class Calendar extends React.Component {
     }
 
     const totalSlots = [...blankDays, ...daysInMonth];
-    // console.log(totalSlots)
     let rows = [];
     let cells = [];
 
@@ -133,7 +132,6 @@ class Calendar extends React.Component {
       );
     });
 
-    // console.log(rowEls ? rowEls : null)
 
     return (
       <div>
