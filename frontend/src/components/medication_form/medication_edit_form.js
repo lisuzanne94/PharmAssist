@@ -20,7 +20,6 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        debugger
         editMedication(state).then(closeModal())
     }
 
