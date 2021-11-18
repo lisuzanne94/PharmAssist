@@ -7,8 +7,10 @@ const NavBar = props => {
     } else {
         return (
             <nav>
-                <Link to={'/signup'}><button onClick={() => props.clearErrors()}>Sign Up</button></Link>
-                <Link to={'/login'}><button onClick={() => props.clearErrors()}>Login</button></Link>
+                <div className="navbar-button-container">
+                    <Link to={'/signup'}><button className="navbar-signup-button" onClick={() => props.clearErrors()}>Sign Up</button></Link>
+                    <Link to={'/login'}><button className="navbar-login-button" onClick={() => props.clearErrors()}>Login</button></Link>
+                </div>
             </nav>
         );
     }
