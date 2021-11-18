@@ -96,14 +96,14 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
                     </div>
                 </div>
                 <br />
+                <h1>Strength</h1>
+                <input type="text" placeholder='Enter the medication strength (ex. 10 for 10 mg)' value={state.strength} onChange={update('strength')}/>
+                <br /><br/>
                 <h1>Dose</h1>
-                <input type="text" placeholder='Enter a number (ex. 1 for 1 tablet)' value={state.dose} onChange={update('dose')}/>
+                <input type="text" placeholder='Enter the number of tablets a day (ex. 1 for 1 tablet)' value={state.dose} onChange={update('dose')}/>
                 <br /><br/>
                 <h1>Frequency</h1>
-                <input type="text" placeholder='Enter a number (ex. 1 for once a day)' value={state.frequency} onChange={update('frequency')}/>
-                <br /><br/>
-                <h1>Strength</h1>
-                <input type="text" placeholder='Enter a number (ex. 10 for 10 mg)' value={state.strength} onChange={update('strength')}/>
+                <input type="text" placeholder='Enter the number of times a day (ex. 1 for once a day)' value={state.frequency} onChange={update('frequency')}/>
                 <br /><br/>
                 <h1>Duration</h1>
                 <input type="text" placeholder='Enter the day supply of your medication' value={state.duration} onChange={update('duration')}/>

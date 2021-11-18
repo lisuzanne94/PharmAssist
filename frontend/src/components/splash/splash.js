@@ -44,16 +44,18 @@ const Splash = () => {
 
             <div className="splash-calendar element-container" ref={calendar}>
                 <h1>Keep track of all your medications</h1>
+                <img className='screenshots' src={require('../../images/calendar.png').default} alt="calendar container of the user's profile" />
                 <div className="arrow" onClick={() => {map.current.scrollIntoView({ behavior: 'smooth' })}}></div>
             </div>
 
             <div className="splash-map element-container" ref={map}>
                 <h1>Find pharmacies close to you</h1>
+                <img className='screenshots' src={require('../../images/map.png').default} alt="map container of the user's profile" />
                 <div className="arrow" onClick={() => {questions.current.scrollIntoView({ behavior: 'smooth' })}}></div>
             </div>
 
             <div className="splash-contact element-container" ref={questions}>
-                <h1>Questions? Contact us</h1>
+                <h1>Questions? <a href='https://github.com/lisuzanne94/PharmAssist'>Contact us</a></h1>
             </div>
         </div>
     );
