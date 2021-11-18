@@ -53,7 +53,6 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                     <button onClick={() => {pharmacy.current.scrollIntoView({ behavior: 'smooth' })}}>Find Your Nearest Pharmacy</button>
                 </div>
                 <div className='other-nav-links'>
-                    <button>How to Use</button><br/>
                     <button onClick={() => toggleDisplay()}>About Us</button>
                 </div>
                 <button className='user-nav-logout' onClick={logoutUser}>Log Out</button>
@@ -67,6 +66,7 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
 
             <div id='section-right'>
                 <section ref={main} className='main-container'>
+                    <div className='main-border-box'></div>
                     <h1 className='main-page'>Welcome, {user.firstName} {user.lastName.slice(0,1)}.</h1><br/>
                     <span>
                         <button className='left-button' onClick={() => {medlist.current.scrollIntoView({ behavior: 'smooth' });

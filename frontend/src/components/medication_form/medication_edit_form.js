@@ -14,12 +14,13 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
         _id: medication._id
     })
 
-    const [searchVal, setSearchVal] = useState('');
+    const [searchVal, setSearchVal] = useState(medication.brandName);
     const [data, setData] = useState([]);
     const [className, setClassName] = useState('search-result');
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        debugger
         editMedication(state).then(closeModal())
     }
 
@@ -69,7 +70,7 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
                 <h1>Brand Name</h1>
                 <div className='wrapper'>
                     <div className='search-container'>
-                        <input className='searchbar' type='text' placeholder='Search for brand name medication' onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => {changeSearchVal(e)}} defaultValue={state.brandName[0].toUpperCase() + state.brandName.slice(1).toLowerCase()} />
+                        <input className='searchbar' type='text' placeholder='Search for brand name medication' onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => {changeSearchVal(e)}} defaultValue={searchVal} value={searchVal} />
                         <div>
                             {
                                 data.displayTermsList ?
@@ -92,19 +93,19 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
                 <br />
                 <h1>Dose</h1>
                 <input type="text" defaultValue={state.dose} onChange={update('dose')}/>
-                <br />
+                <br /><br/>
                 <h1>Frequency</h1>
                 <input type="text" defaultValue={state.frequency} onChange={update('frequency')}/>
-                <br />
+                <br /><br/>
                 <h1>Strength</h1>
                 <input type="text" defaultValue={state.strength} onChange={update('strength')}/>
-                <br />
+                <br /><br/>
                 <h1>Duration</h1>
                 <input type="text" defaultValue={state.duration} onChange={update('duration')}/>
-                <br />
+                <br /><br/>
                 <h1>Start Date</h1>
                 <input type="date" defaultValue={state.startDate} onChange={update('startDate')}/>
-                <br />
+                <br /><br/>
                 <input className='submit-form-button' type='submit' value='Update' />
             </form>
         </div>
