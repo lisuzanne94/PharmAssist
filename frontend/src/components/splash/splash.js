@@ -38,6 +38,7 @@ const Splash = () => {
 
             <div className="splash-med-list element-container" ref={medlist}>
                 <h1>Add prescriptions to your medication list</h1>
+                <img className='screenshots' src={require('../../images/add-medication.gif').default} alt="process of adding medication to med list" />
                 <div className="arrow" onClick={() => {calendar.current.scrollIntoView({ behavior: 'smooth' })}}></div>
             </div>
             

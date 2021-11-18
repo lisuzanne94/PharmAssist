@@ -66,6 +66,8 @@
 .splash-med-list {
     background-color: rgb(181, 101, 118);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .splash-calendar {
@@ -148,7 +150,7 @@
 
 .screenshots {
     width: 40%;
-    margin-top: 20px;
+    margin-top: 40px;
     display: inline-block;
 }
 
