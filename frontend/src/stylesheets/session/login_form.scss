@@ -15,6 +15,7 @@
         width: 25%;
         background: white;
         font-size: 22px;
+        z-index: 1;
         label {
             display: flex;
             justify-content: space-between;
@@ -58,7 +59,7 @@
 .login-title {
     height: 100vh;
     color: white;
-    font-size: 19em;
+    font-size: 17em;
     transform: rotate(270deg);
     position: absolute;
 }
