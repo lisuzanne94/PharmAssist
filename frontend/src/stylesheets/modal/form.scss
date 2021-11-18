@@ -31,6 +31,16 @@
             border: 1px solid #aeaeae;
             border-radius: 5px;
         }
+
+        .submit-form-button {
+            border: none;
+            background: $color;
+            color: #fff;
+            font-family: $font;
+            font-size: 15px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
     }
 }
 
@@ -42,7 +52,6 @@
     position: absolute;
     display: flex;
     align-items: center;
-    padding-left: 0px;
     font-size: 18px;
     overflow: auto;
 }

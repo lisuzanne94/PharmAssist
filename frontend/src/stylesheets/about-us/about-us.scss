@@ -16,19 +16,31 @@
     background: #fff;
     right: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-columns: 30%;
+    text-align: center;
     .about-member {
-        margin: 20px 0 0 40px;
+        margin: 40px 0 0 60px;
     }
-    .member-name {
-        font-size: 25px;
+    h2 {
+        font-size: 35px;
+    }
+    h4 {
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .about-links {
+        font-size: 16px;
+        a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
     @include fadein;
-    @include fadeout;
 }
 
 .display-true {
