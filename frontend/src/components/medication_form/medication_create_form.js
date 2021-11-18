@@ -15,7 +15,7 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
     })
     const [searchVal, setSearchVal] = useState('');
     const [data, setData] = useState([]);
-    const [show, setShow] = useState(false);
+    const [className, setClassName] = useState('search-result');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -42,15 +42,22 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
         }
     };
 
-    const handleChange = (option) => {
-        setSearchVal(option);
+    const handleClick = (capitalized, field) => {
+        if (className === 'search-result') {
+            setClassName('search-result display-none');
+        } else {
+            setClassName('search-result')
+        }
+        setSearchVal(capitalized);
+        return setState(prevProps => ({
+            ...prevProps,
+            [field]: capitalized
+        }));
     };
 
-    const toggleShow = () => {
-        if (show) {
-            setShow(false);
-        } else {
-            setShow(true);
+    const handleKeyDown = (e) => {
+        if (e.key === 'Backspace') {
+            setClassName('search-result');
         }
     }
 
@@ -69,20 +76,20 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
                 <h1>Brand Name</h1>
                 <div className='wrapper'>
                     <div className='search-container'>
-                        <input className='searchbar' type='text' placeholder='Search for brand name medication' onChange={(e) => {changeSearchVal(e); update('brandName')}} value={searchVal} />
+                        <input className='searchbar' type='text' placeholder='Search for brand name medication' onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => {changeSearchVal(e)}} value={searchVal} />
                         <div>
                             {
                                 data.displayTermsList ?
                                     data.displayTermsList.term.filter(val => {
                                         if (searchVal === '') {
-                                            return '';
+                                            return searchVal;
                                         } else if (val.toLowerCase().startsWith(searchVal.toLowerCase()) && (!val.includes('(') && !val.includes('/ '))) {
                                             return val;
                                         }
                                     }).map((val, idx) => {
                                         let capitalized = val[0].toUpperCase() + val.slice(1).toLowerCase();
                                         return (
-                                            <li className={className} onClick={() => { handleChange(capitalized); show ? toggleShow() : null } } key={idx}><span className=''>{capitalized}</span></li>
+                                            <li className={className} onClick={(e) => handleClick(capitalized, 'brandName')} key={idx}>{capitalized}</li>
                                         )})
                                 : null
                             }
