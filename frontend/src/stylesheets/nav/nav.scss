@@ -7,19 +7,26 @@ nav {
         justify-content: flex-end;
         margin: 15px 15px 15px;
     }
-    .navbar-signup-button, .navbar-login-button {
-           margin: 0px 15px 15px;
-           width: 80%;
-           font-size: 18px;
-           line-height: 32px;
-           font-weight: 300;
-           border: 1px solid #fff;
-           color: #fff;
-           background: rgba(255, 255, 255, 0.062);
-           transition: ease-in 0.2s;
-           &:hover {
-               background: rgba(255, 255, 255, 0.253);
-               cursor: pointer;
-           }
+    .navbar-signup-button, .navbar-login-button, .demo-user-button {
+        margin: 0px 15px 15px;
+        font-size: 18px;
+        line-height: 32px;
+        font-weight: 300;
+        border: 1px solid #fff;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.062);
+        transition: ease-in 0.2s;
+        &:hover {
+            background: rgba(255, 255, 255, 0.253);
+            cursor: pointer;
+        }
     }
+
+    .navbar-signup-button, .navbar-login-button {
+        width: 80%;
+    }
+}
+
+.demo-user-button {
+    width: 10%;
 }
