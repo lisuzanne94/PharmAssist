@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Splash = () => {
+const Splash = ({ login }) => {
 
     return (
         <div className="splash-page-container">
@@ -40,7 +40,6 @@ const Splash = () => {
             <div className="splash-contact element-container">
                 Questions? Contact us
             </div>
-
 
             <footer>
                 Copyright &copy; 2021 Suzanne Li, Subin Cho, Sohee Park, Matt Swedin
