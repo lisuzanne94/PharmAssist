@@ -2,6 +2,7 @@
     height: 100vh;
     scroll-snap-type: y mandatory;
     overflow-y: auto;
+    position: relative;
 }
 
 .element-container {
@@ -29,6 +30,7 @@
 
 .intro-msg {
     background-color: rgb(109, 89, 122);
+    position: relative;
 }
 
 .intro-title {
@@ -49,28 +51,34 @@
 
 
 .arrow {
-    display: flex;
+    bottom: 0;
+    position: absolute;
     margin-top: 15px;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-top: 15px solid #ffffff;
+    margin-bottom: 60px;
 
 }
 
 .splash-med-list {
     background-color: rgb(181, 101, 118);
+    position: relative;
 }
 
 .splash-calendar {
     background-color: rgb(234,172,139);
+    position: relative;
 }
 
 .splash-map {
     background-color: rgb(90,170,149);
+    position: relative;
 }
 
 .splash-contact {
     background-color: rgb(134,168,115);
+    position: relative;
 }
 
 .welcome-container {
