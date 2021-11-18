@@ -1,3 +1,5 @@
+@import './form.scss';
+
 .med-form-modalbg {
     position: fixed;
     top: 0;
@@ -9,15 +11,13 @@
 }
 
 .med-form-modalc {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    @include flex-centered-column;
     background-color: white;
-    height: 500px;
-    width: 380px;
+    height: 600px;
+    width: 420px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 24px;
+    border-radius: 10px;
 }
