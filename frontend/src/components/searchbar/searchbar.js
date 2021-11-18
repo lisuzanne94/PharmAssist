@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-const SearchBar = ({ brandName, change }) => {
-    const [searchVal, setSearchVal] = useState('');
+const SearchBar = ({ value }) => {
+    const [searchVal, setSearchVal] = useState(value);
+    const [className, setClassName] = useState('search-result');
     const [data, setData] = useState([]);
 
-    const update = (value) => {
-        setSearchVal(value);
+    const update = (e) => {
+        setSearchVal(e.target.value);
         if (searchVal && searchVal.length > 3) {
             axios.get(`https://rxnav.nlm.nih.gov/REST/Prescribe/displaynames.json`)
             .then(res => setData(res.data))
@@ -16,27 +17,39 @@ const SearchBar = ({ brandName, change }) => {
         }
     };
 
+    const handleChange = (option) => {
+        setSearchVal(option);
+    };
+
+    const toggleClass = () => {
+        if (className === 'search-result') {
+            setClassName('search-result display-none');
+        } else {
+            return setClassName('search-result');
+        }
+    }
+
     return (
-        <div className='search-container'>
-            <input className='searchbar' type='text' placeholder='Search for brand name medication' onChange={(e) => {change(e); update(brandName)}} value={brandName} />
+        // <div className='search-container'>
+        //     <input className='searchbar' type='text' placeholder='Search for brand name medication' onChange={(e) => {update(e)}} value={searchVal} />
             <div>
-                <ul>
-                    {
-                        data.displayTermsList ? data.displayTermsList.term.filter(val => {
+                {
+                    data.displayTermsList ?
+                        data.displayTermsList.term.filter(val => {
                             if (searchVal === '') {
-                                return val;
+                                return '';
                             } else if (val.toLowerCase().startsWith(searchVal.toLowerCase()) && (!val.includes('(') && !val.includes('/ '))) {
                                 return val;
                             }
-                        }).slice(0, 5).map((val, idx) => {
-                            if (searchVal.length) {
-                                return (<li className='search-result' key={idx}>{val[0].toUpperCase() + val.slice(1).toLowerCase()}</li>)
-                            }
-                        }) : null
-                    }
-                </ul>
+                        }).map((val, idx) => {
+                            let capitalized = val[0].toUpperCase() + val.slice(1).toLowerCase();
+                            return (
+                                <li className={className} onClick={() => {handleChange(capitalized); toggleClass()} } key={idx}><span className=''>{capitalized}</span></li>
+                            )})
+                    : null
+                }
             </div>
-        </div>
+        // </div>
     )
 };
 

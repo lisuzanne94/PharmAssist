@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchBar from "../searchbar/searchbar";
+import axios from "axios";
 
 
 const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModal }) => {
@@ -12,18 +13,44 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
         duration: '',
         startDate: '',
     })
+    const [searchVal, setSearchVal] = useState('');
+    const [data, setData] = useState([]);
+    const [show, setShow] = useState(false);
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        createMedication(state).then(closeModal())
+        e.preventDefault();
+        createMedication(state).then(closeModal());
     }
 
     const update = field => {
-        return event => {   
+        return event => {
             setState(prevProps => ({
-            ...prevProps,
-            [field]: event.target.value
-        }));
+                ...prevProps,
+                [field]: event.target.value
+            }));
+        }
+    }
+
+    const changeSearchVal = (e) => {
+        setSearchVal(e.target.value);
+        if (searchVal && searchVal.length > 3) {
+            axios.get(`https://rxnav.nlm.nih.gov/REST/Prescribe/displaynames.json`)
+            .then(res => setData(res.data))
+            .catch(err => console.log(err.response.data));
+        } else {
+            setData([]);
+        }
+    };
+
+    const handleChange = (option) => {
+        setSearchVal(option);
+    };
+
+    const toggleShow = () => {
+        if (show) {
+            setShow(false);
+        } else {
+            setShow(true);
         }
     }
 
@@ -41,7 +68,26 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
             <form className='modal-form' onSubmit={handleSubmit}>
                 <h1>Brand Name</h1>
                 <div className='wrapper'>
-                    <SearchBar brandName={state.brandName} change={update('brandName')}/>
+                    <div className='search-container'>
+                        <input className='searchbar' type='text' placeholder='Search for brand name medication' onChange={(e) => {changeSearchVal(e); update('brandName')}} value={searchVal} />
+                        <div>
+                            {
+                                data.displayTermsList ?
+                                    data.displayTermsList.term.filter(val => {
+                                        if (searchVal === '') {
+                                            return '';
+                                        } else if (val.toLowerCase().startsWith(searchVal.toLowerCase()) && (!val.includes('(') && !val.includes('/ '))) {
+                                            return val;
+                                        }
+                                    }).map((val, idx) => {
+                                        let capitalized = val[0].toUpperCase() + val.slice(1).toLowerCase();
+                                        return (
+                                            <li className={className} onClick={() => { handleChange(capitalized); show ? toggleShow() : null } } key={idx}><span className=''>{capitalized}</span></li>
+                                        )})
+                                : null
+                            }
+                        </div>
+                    </div>
                 </div>
                 <br />
                 <h1>Dose</h1>
