@@ -69,7 +69,8 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                 <section ref={main} className='main-container'>
                     <h1 className='main-page'>Welcome, {user.firstName} {user.lastName.slice(0,1)}.</h1><br/>
                     <span>
-                        <button className='left-button'>Add new medication regimen</button>
+                        <button className='left-button' onClick={() => {medlist.current.scrollIntoView({ behavior: 'smooth' });
+                        setTimeout(() => { openModal({type: 'createMedication'})}, 800)}} >Add new medication regimen</button>
                         <button className='right-button' onClick={() => {medlist.current.scrollIntoView({ behavior: 'smooth' })}}>Current list of medications</button>
                     </span>
                 </section>

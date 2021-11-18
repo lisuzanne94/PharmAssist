@@ -13,19 +13,21 @@ const Splash = () => {
             </div>
 
             <div className="intro-msg element-container">
-                <div>
-                    <h1>What is PharmAssist?</h1>
+                <div className="intro-text">
+                    <h1 className="intro-title" >What is PharmAssist?</h1>
                     <br/>
                     <br/>
-                    <p>Keeping track of your medications can be hard.</p> 
-                    <p>We're here to make it easier.</p> 
-                    <p>Keep scrolling to find out what we can do for you.</p>
+                    <p className="intro-p">Keeping track of your medications can be hard.</p>
+                    <p className="intro-p">We're here to make it easier.</p>
                 </div>
+                <div className="arrow"></div>
             </div>
+            
 
             <div className="splash-med-list element-container">
                 MEDLIST FEATURE
             </div>
+            
 
             <div className="splash-calendar element-container">
                 CALENDAR FEATURE
