@@ -1,4 +1,6 @@
 @import './tooltip.scss';
+@import '../about-us/about-us.scss';
+@import './medication-list.scss';
 
 #user-profile {
     position: relative;
@@ -121,11 +123,13 @@
     }
     #section-right {
         width: 77%;
+        min-height: 100vh;
         right: 0;
         position: absolute;
         @include flex-centered-column;
         .main-container {
             @include section-container;
+            scroll-snap-align: start;
             justify-content: center;
 
             h1.main-page {
@@ -152,6 +156,8 @@
                 }
             }
 
+            @include fadein;
+
             @keyframes slidedown {
                 from {
                     margin-top: -30%;
@@ -160,16 +166,6 @@
 
                 to {
                     margin-top: 0%;
-                    opacity: 1;
-                }
-            }
-
-            @keyframes fadein {
-                from {
-                    opacity: 0;
-                }
-
-                to {
                     opacity: 1;
                 }
             }

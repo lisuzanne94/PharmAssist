@@ -10,6 +10,26 @@ body {
     background: #ebebeb;
 }
 
+a {
+    text-decoration: none;
+    color: $color;
+}
+
 button {
     font-family: $font;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+}
+
+input {
+    outline: none;
 }

@@ -1,33 +1,18 @@
 import React, { useEffect } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faTrash, faCapsules } from '@fortawesome/free-solid-svg-icons'
+import { fetchMedications } from "../../actions/medication_actions";
 
 const MedicationList = ({ medications, deleteMedication, openModal }) => {
 
 
     return (
         <div>
-            <ul className="med-list">
+            <ul className='medication-list'>
                 {
                     medications ? Object.values(medications).map((medication, i) => (
-                        <li key={i} className="med-list-item">
-                            <div className="med-list-text" onClick={() => openModal({ type: 'getDrugInfo', medication: medication })}>
-                                <FontAwesomeIcon icon={faCapsules} className="pill-icon" />&nbsp;
-                                <span className="med-list-name">
-                                    <span>{medication.brandName}</span> {medication.strength}mg&nbsp;
-                                </span>
-                                <span className="med-list-sig">{medication.frequency === "1" ? "1 time" : `${medication.frequency} times`} a day</span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                            </div>
-                            <div className="med-list-btns">
-                                <button onClick={() => openModal({type: 'updateMedication', medication: medication})}>
-                                    <FontAwesomeIcon icon={faPen} /> Update
-                                </button>
-                                &nbsp;
-                                <button onClick={() => deleteMedication(medication._id) }>
-                                    <FontAwesomeIcon icon={faTrash} /> Delete
-                                </button>
-                            </div>
+                        <li key={i} className='medication'>
+                            <span className='medication-name'><span onClick={() => openModal({ type: 'getDrugInfo', medication: medication })}>{medication.brandName[0].toUpperCase() + medication.brandName.slice(1).toLowerCase()}</span> {medication.strength}mg {medication.frequency === "1" ? "1 time" : `${medication.frequency} times`} a day {!medication.duration ? '' : `for ${medication.duration} days`}</span>
+                            <input type="submit" value="Update" onClick={() => openModal({type: 'updateMedication', medication: medication})} />
+                            <input type="submit" value="Delete" onClick={() => deleteMedication(medication._id) } />
                         </li>
                     )) : null
                 }
