@@ -34,7 +34,7 @@ const SignupForm = props => {
 
     const renderErrors = () => {
         return (
-            <ul>
+            <ul className="signup-errors-container">
                 {Object.keys(props.errors).map((error, i) => (
                     <li key={`error-${i}`}>
                         {props.errors[error]}
@@ -89,7 +89,7 @@ const SignupForm = props => {
                     />
                     </label>
                     <br />
-                    <input type='submit' value='Submit' />
+                    <input type='submit' value='Submit' className="signup-form-submit"/>
                     {renderErrors()}
             </form>
         </div>
