@@ -56,18 +56,7 @@ class Calendar extends React.Component {
       blankDays.push(<td key={i}>{""}</td>)
     }
 
-    // const userInputMedications = (
-    //   [{ userId: "6192062d29c17e3b912aad16", brandName: "Prozac", dose: "2", frequency: "2", strength: "10" },
-    //   { userId: "6192062d29c17e3b912aad16", brandName: "Zestril", dose: "1", frequency: "1", strength: "20" },
-    //   { userId: "6192062d29c17e3b912aad16", brandName: "Augmentin", dose: "1", frequency: "2", strength: "875", startDate: "2021-11-15T05:00:00.000Z", duration: "7" }]
-    // )
-
-    // const medsWithoutStartDate = userInputMedications.filter(medication => (!medication.startDate))
-    // // console.log(medsWithoutStartDate)
-    // const medsWithStartDate = userInputMedications.filter(medication => (medication.startDate))
-
     const medsWithoutStartDate = this.props.medications.filter(medication => (!medication.startDate))
-    // console.log(medsWithoutStartDate)
     const medsWithStartDate = this.props.medications.filter(medication => (medication.startDate))
 
     medsWithStartDate.forEach(medication => {
@@ -82,7 +71,10 @@ class Calendar extends React.Component {
     const daysInMonth = [];
     for (let day = 1; day <= this.daysInMonth(); day++) {
       const currentDay = parseInt(this.currentDay())
-      const className = (day === currentDay ? "day current-day" : "day")
+      let className = (day === currentDay ? "day current-day " : "day ")
+      if (day < currentDay) {
+        className += 'past-day'
+      };
       daysInMonth.push(<td key={day} className={className}>
         <div className="day-block">
           {day}
@@ -94,19 +86,6 @@ class Calendar extends React.Component {
               </div>
             ))
           }
-          {/* {
-            medsWithStartDate.map((medication, i) => (
-              <div>
-                {
-                  day === parseInt(medication.startDate.slice(8, 10)) ? (
-                    <div>
-                      {medication.brandName} {medication.strength} mg
-                    </div>
-                  ) : null
-                }
-              </div>
-            ))
-          } */}
           {
             medsWithStartDate.map((medication, i) => (
               <div key={i} className="calendar-med">
@@ -119,7 +98,6 @@ class Calendar extends React.Component {
                 }
               </div>
             ))
-            
           }
           
         </div>

@@ -1,3 +1,12 @@
+$babypink: rgb(240, 178, 178);
+$blue: #355070;
+$violet: #6D597A;
+$rose: #B56576;
+$pink: #E56B6F;
+$tumbleweed: #EAAC8B;
+$pine: #5AAA95;
+$asparagus: #86A873;
+
 .calendar-container {
     width: 75vw;
     height: 80vh;
@@ -16,18 +25,14 @@
 
 .day-block {
     display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    margin: 10px 0 0 10px;
-    width: 140px;
-    height: 90px;
-    &:hover {
-        background: #eee;
-    }
+    width: 100%;
+    height: 100%;
     overflow-y: scroll;
     scrollbar-width: none;
 
+    &:hover {
+        background: #eee;
+    }
 }
 
 .day-block::-webkit-scrollbar {
@@ -35,25 +40,26 @@
 }
 
 .weekday {
-    
     background-color: #eeeeee;
     line-height: 30px;
 }
 
 .day {
     margin: auto;
-    padding: 0%;
     width: 140px;
     height: 90px;
-    
+    padding: 10px;
 }
 
-.day.current-day {
-    background-color: rgb(240, 178, 178);
+.current-day {
+    width: 140px;
+    height: 90px;
+    background-color: rgba(109, 89, 122, 0.5);
 }
 
 .calendar-med {
     font-size: small;
+    line-height: 15px;
 }
 
 .calendar-med-list {
@@ -61,4 +67,12 @@
     display: flex;
     flex-direction: column;
     text-align: left
+}
+
+.past-day {
+    background-color: rgb(244, 244, 244);
+}
+
+.acute-med {
+    background-color: rgba(240, 178, 178, 0.4);
 }
