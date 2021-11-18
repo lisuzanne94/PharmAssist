@@ -30,6 +30,10 @@
 
 }
 
+.day-block::-webkit-scrollbar {
+    display: none;
+}
+
 .weekday {
     
     background-color: #eeeeee;
