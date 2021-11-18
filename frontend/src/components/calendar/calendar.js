@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCapsules } from '@fortawesome/free-solid-svg-icons'
 
 class Calendar extends React.Component {
