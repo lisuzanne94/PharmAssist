@@ -20,7 +20,7 @@ const NavBar = props => {
                 <div className="navbar-button-container">
                     <Link to={'/signup'}><button className="navbar-signup-button" onClick={() => props.clearErrors()}>Sign Up</button></Link>
                     <Link to={'/login'}><button className="navbar-login-button" onClick={() => props.clearErrors()}>Login</button></Link>
-                    <button onClick={e => loginDemo(e)} >Demo User</button>
+                    <button className="demo-user-button" onClick={e => loginDemo(e)} >Demo User</button>
                 </div>
             </nav>
         );
