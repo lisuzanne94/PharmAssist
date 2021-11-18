@@ -55,7 +55,6 @@ const Map = () => {
             const cb = (results, status) => {
                 if (status === window.google.maps.places.PlacesServiceStatus.OK) {
                     for (let i = 0; i < results.length; i++) {
-                        // let place = results[i];
                         createMarker(results[i]);
                     }
                 }
@@ -85,6 +84,10 @@ const Map = () => {
                 id="map"        
                 ref={googleMapRef}
             />
+            <br />
+            <div className="location-services-msg">
+                * Please enable Location Services for an enhanced experience.
+            </div>
         </div>
     )
 }

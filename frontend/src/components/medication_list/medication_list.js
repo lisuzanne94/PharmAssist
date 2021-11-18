@@ -4,7 +4,7 @@ import { fetchMedications } from "../../actions/medication_actions";
 const MedicationList = ({ medications, deleteMedication, openModal }) => {
 
     return (
-        <div>
+        <div className="medication-list-container">
             <ul className='medication-list'>
                 {
                     medications ? Object.values(medications).map((medication, i) => (
