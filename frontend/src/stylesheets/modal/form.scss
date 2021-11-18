@@ -1,25 +1,49 @@
 .modal-container {
-    width: 80%;
-    text-align: center;
-    h1 {
-        text-align: left;
-    }
+    width: 100%;
+    @include flex-centered-column;
 
     .add-med-header {
+        align-self: flex-start;
+        padding-left: 20px;
         font-size: 30px;
     }
+    .modal-form {
+        padding: 0 20px;
+        h1 {
+            text-align: left;
+        }
 
-    input {
-        width: 100%;
-        height: 30px;
-        border: 1px solid #aeaeae;
-        border-radius: 5px;
+        .wrapper {
+            width: 100%;
+            .search-container {
+                background: none;
+                border-radius: 5px;
+                box-shadow: none;
+                width: 100%;
+                position: relative;
+                // input {
+                //     &:focus {
+                        
+                //     }
+                // }
+            }
+        }
+    
+    
+        input {
+            width: 360px;
+            height: 30px;
+            border: 1px solid #aeaeae;
+            border-radius: 5px;
+        }
     }
 }
 
-.search-container {
-    background: #fff;
+.search-result {
     width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 1px 5px 8px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    height: 30px;
+    font-size: 18px;
 }

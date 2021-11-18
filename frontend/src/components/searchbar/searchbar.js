@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const SearchBar = () => {
+const SearchBar = ({ brandName, change }) => {
     const [searchVal, setSearchVal] = useState('');
     const [data, setData] = useState([]);
 
-    // useEffect(() => {
-    //     const loadMeds = async () => {
-    //         const response = await axios.get(`https://api.fda.gov/drug/label.json?search=openfda.brand_name:${searchVal}&limit=5`);
-    //         console.log(response.data)
-    //     }
-    //     loadMeds();
-    // }, [])
-
-    const update = value => {
+    const update = (value) => {
         setSearchVal(value);
         if (searchVal && searchVal.length > 3) {
             axios.get(`https://rxnav.nlm.nih.gov/REST/Prescribe/displaynames.json`)
@@ -24,36 +16,22 @@ const SearchBar = () => {
         }
     };
 
-    // const getVal = (value) => {
-    //     axios.get(`https://api.fda.gov/drug/label.json?search=openfda.route:'oral'+AND+openfda.generic_name:${value}&limit=10`)
-    //     .then(res => setData(res.data))
-    // }
-
-    // const handleChange = (value) => {
-    //     setSearchVal(value);
-    //     if (searchVal && searchVal.length > 1) {
-    //         if (searchVal.length % 2 === 0) {
-    //             getVal(value);
-    //         }
-    //     }
-    // }
-
     return (
-        <div>
-            <input className='searchbar' type='text' placeholder='Search for brand name medication' onChange={(e) => update(e.target.value)} value={searchVal} />
+        <div className='search-container'>
+            <input className='searchbar' type='text' placeholder='Search for brand name medication' onChange={(e) => {change(e); update(brandName)}} value={brandName} />
             <div>
                 <ul>
                     {
                         data.displayTermsList ? data.displayTermsList.term.filter(val => {
                             if (searchVal === '') {
-                                return '';
-                            } else if (val.toLowerCase().includes(searchVal.toLowerCase()) && (!val.includes('(') && !val.includes('/ '))) {
+                                return val;
+                            } else if (val.toLowerCase().startsWith(searchVal.toLowerCase()) && (!val.includes('(') && !val.includes('/ '))) {
                                 return val;
                             }
                         }).slice(0, 5).map((val, idx) => {
-                            if (searchVal.length > 4) {
-                                return (<li className='user-medication-list-item' key={idx}>{val[0].toUpperCase() + val.slice(1).toLowerCase()}</li>)
-                            } else { return null }
+                            if (searchVal.length) {
+                                return (<li className='search-result' key={idx}>{val[0].toUpperCase() + val.slice(1).toLowerCase()}</li>)
+                            }
                         }) : null
                     }
                 </ul>
