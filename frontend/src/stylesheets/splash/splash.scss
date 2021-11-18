@@ -66,16 +66,22 @@
 .splash-med-list {
     background-color: rgb(181, 101, 118);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .splash-calendar {
     background-color: rgb(234,172,139);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .splash-map {
     background-color: rgb(90,170,149);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .splash-contact {
@@ -140,6 +146,12 @@
         letter-spacing: 1px;
         margin-top: -50px;
     }
+}
+
+.screenshots {
+    width: 40%;
+    margin-top: 40px;
+    display: inline-block;
 }
 
 

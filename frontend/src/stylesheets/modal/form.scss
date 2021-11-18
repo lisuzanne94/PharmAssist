@@ -55,6 +55,9 @@
     align-items: center;
     font-size: 18px;
     overflow: auto;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .display-none {

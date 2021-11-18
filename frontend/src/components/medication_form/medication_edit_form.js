@@ -90,14 +90,14 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
                     </div>
                 </div>
                 <br />
+                <h1>Strength</h1>
+                <input type="text" defaultValue={state.strength} onChange={update('strength')}/>
+                <br /><br/>
                 <h1>Dose</h1>
                 <input type="text" defaultValue={state.dose} onChange={update('dose')}/>
                 <br /><br/>
                 <h1>Frequency</h1>
                 <input type="text" defaultValue={state.frequency} onChange={update('frequency')}/>
-                <br /><br/>
-                <h1>Strength</h1>
-                <input type="text" defaultValue={state.strength} onChange={update('strength')}/>
                 <br /><br/>
                 <h1>Duration</h1>
                 <input type="text" defaultValue={state.duration} onChange={update('duration')}/>
