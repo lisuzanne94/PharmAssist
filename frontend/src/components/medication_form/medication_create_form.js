@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SearchBar from "../searchbar/searchbar";
 import axios from "axios";
 
 
@@ -112,7 +111,7 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
                 <h1>Start Date</h1>
                 <input type="date" value={state.startDate} onChange={update('startDate')}/>
                 <br /><br/>
-                <input type='submit' value='Submit' />
+                <input className='submit-form-button' type='submit' value='Submit' />
             </form>
         </div>
     )

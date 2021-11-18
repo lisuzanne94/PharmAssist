@@ -1,0 +1,21 @@
+.medication-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2em;
+    .medication {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1em;
+        text-align: center;
+        .medication-name {
+            font-size: 18px;
+        }
+        input {
+            border: none;
+            background: $color;
+            color: #fff;
+            font-family: $font;
+            height: 28px;
+        }
+    }
+}
