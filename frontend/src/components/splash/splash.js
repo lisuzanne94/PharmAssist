@@ -9,13 +9,19 @@ const Splash = () => {
     const questions = useRef(null);
 
     return (
+        
         <div className="splash-page-container">
             <div className="welcome-banner element-container">
                 <div className="welcome-container">
                     <span className="welcome-to">Welcome to</span>
                     <span className="pharmassist-title"><span>Pharm<span className="assist">Assist</span></span></span>
+                    
                 </div>
+                 
                 <div className="arrow" onClick={() => {whatIs.current.scrollIntoView({ behavior: 'smooth' })}}></div>
+
+                <img src={require('../../images/image-rph.png').default} className="assistant" />
+                
             </div>
 
             <div className="intro-msg element-container" ref={whatIs}>
