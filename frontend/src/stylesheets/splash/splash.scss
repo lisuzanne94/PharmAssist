@@ -52,6 +52,7 @@
 
 
 .arrow {
+    cursor: pointer;
     bottom: 0;
     position: absolute;
     margin-top: 15px;
@@ -108,6 +109,24 @@
     color: rgb(53, 80, 112);
 }
 
+.assistant {
+    z-index: 2;
+    position: absolute;
+    height: 379px;
+    width: 211.875px;
+    bottom: 0;
+    margin-bottom: 90px;
+    margin-left: 730px;
+    opacity: 0;
+    animation-name: slidein;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+    // animation: slidein 3s 2, wait 3s 1;
+    
+}
+
+
 @keyframes text {
     0% {
         color: #668BB7;
@@ -149,5 +168,29 @@
     to {
         opacity: 1;
         margin-top: 0;
+    }
+}
+
+@keyframes wait {
+    from {
+        opacity: 0;
+        
+    }
+
+    to {
+        opacity: 0;
+        
+    }
+}
+
+@keyframes slidein {
+    from {
+        opacity: 0;
+        
+    }
+
+    to {
+        opacity: 1;
+        
     }
 }
