@@ -56,7 +56,7 @@ const Splash = () => {
             </div>
 
             <div className="splash-contact element-container" ref={questions}>
-                <h1>Questions? <a href='https://github.com/lisuzanne94/PharmAssist'>Contact us</a></h1>
+                <h1>Questions? <a target="_blank" href="https://github.com/lisuzanne94/PharmAssist/wiki">Contact us</a></h1>
             </div>
         </div>
     );
