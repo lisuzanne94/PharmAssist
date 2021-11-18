@@ -1,9 +1,73 @@
+$blue: #355070;
+$violet: #6D597A;
+$rose: #B56576;
+$pink: #E56B6F;
+$tumbleweed: #EAAC8B;
+$pine: #5AAA95;
+$asparagus: #86A873;
+
 .med-list {
-    line-height: 50px;
+    width: fit-content;
 }
 
 .med-list-item {
+    display: flex;
     font-size: 20px;
+    animation: drop-in 3s;
+}
+
+.med-list-text:hover {
+    cursor: pointer;
+}
+
+.med-list-text {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    margin: 1em;
+    padding: 1em 2em;
+    box-shadow: inset 0px 0px 0px 2px $pink;
+    position: relative;
+    vertical-align: middle;
+    transition: color 0.25s;
+}
+
+.med-list-text::before, .med-list-text::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    width: 0;
+    height: 0;
+}
+
+.med-list-text::before {
+    top: 0;
+    left: 0;
+}
+
+.med-list-text::after {
+    bottom: 0;
+    right: 0;
+}
+
+.med-list-text:hover::before, .med-list-text:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.med-list-text:hover::before {
+    border-top-color: $pink;
+    border-right-color: $pink;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.med-list-text:hover::after {
+    border-top-color: $pink;
+    border-right-color: $pink;
+    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
 }
 
 .med-list-item:hover .med-list-name, .med-list-item:hover .med-list-sig {
@@ -15,14 +79,25 @@
     font-weight: 400;
 }
 
-.med-list-sig {
+.pill-icon {
     color: rgb(109, 89, 122);
 }
 
 .med-list-btns {
-    display: none;
+    visibility: hidden;
 }
 
 .med-list-item:hover .med-list-btns{
-    display: inline-block;
+    visibility: visible;
+}
+
+@keyframes drop-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%)
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%)
+    }
 }
