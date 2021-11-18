@@ -1,0 +1,28 @@
+.med-list {
+    line-height: 50px;
+}
+
+.med-list-item {
+    font-size: 20px;
+}
+
+.med-list-item:hover .med-list-name, .med-list-item:hover .med-list-sig {
+    background-color: rgb(239, 239, 239);
+    background-size: 10px;
+}
+
+.med-list-name {
+    font-weight: 400;
+}
+
+.med-list-sig {
+    color: rgb(109, 89, 122);
+}
+
+.med-list-btns {
+    display: none;
+}
+
+.med-list-item:hover .med-list-btns{
+    display: inline-block;
+}
