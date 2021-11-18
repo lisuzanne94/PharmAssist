@@ -131,20 +131,27 @@
             @include section-container;
             scroll-snap-align: start;
             justify-content: center;
-
+            background-image: linear-gradient(90deg, rgba(53,80,112,1) 21%, rgba(109,89,122,1) 70%, rgba(181,101,118,1) 90%, rgba(229,107,111,1) 100%) 1;
             .main-border-box {
                 width: 80%;
                 height: 40%;
-                border: 5px solid $color;
                 animation-name: enlarge;
                 animation-duration: 1.5s;
                 position: absolute;
+                
+            }
+
+            .with-border {
+                border-width: 5px;
+                border-style: solid;
+                border-image: linear-gradient(90deg, rgba(53,80,112,1) 0%, rgba(109,89,122,1) 33%, rgba(181,101,118,1) 66%, rgba(229,107,111,1) 100%) 1;
             }
 
             h1.main-page {
                 text-transform: uppercase;
                 font-size: 60px;
                 font-family: $sec-font;
+                color: rgba(109,89,122,1);
                 margin-bottom: 20px;
                 animation-name: slidedown;
                 animation-duration: 1.5s;
@@ -159,9 +166,10 @@
                 @include main-button;
                 animation-delay: 2s;
                 background: #fff;
-                color: $color;
+                color: rgba(53,80,112,1);
                 &:hover {
-                    background-color: rgb(241, 241, 241);
+                    background-color: rgb(240, 233, 233);
+                    color: rgb(194, 110, 131);
                 }
             }
 
