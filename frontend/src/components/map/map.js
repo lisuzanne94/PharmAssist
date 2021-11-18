@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { withRouter } from "react-router";
 
 const Map = () => {
     const googleMapRef = useRef();
     
     useEffect(() => {
-        let infoWindow;
         let map;
         const googleMapScript = document.createElement('script');
         googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDdZPQk6y4-kxSHKi8pbNDPHlQ2K0CnXC4&libraries=places`
@@ -21,6 +20,7 @@ const Map = () => {
                 zoom: 15,
             })
             
+            // Query google place API
             const request = {
                 query: 'pharmacy',
                 fields: ['name', 'formatted_address', 'geometry']
@@ -55,7 +55,7 @@ const Map = () => {
             const cb = (results, status) => {
                 if (status === window.google.maps.places.PlacesServiceStatus.OK) {
                     for (let i = 0; i < results.length; i++) {
-                        let place = results[i];
+                        // let place = results[i];
                         createMarker(results[i]);
                     }
                 }
@@ -80,11 +80,12 @@ const Map = () => {
     }, []);
 
     return (
-        <div
-            id="map"        
-            ref={googleMapRef}
-            style={{ height: '75vh', width: '80%' }}
-        />
+        <div className="map-container">
+            <div
+                id="map"        
+                ref={googleMapRef}
+            />
+        </div>
     )
 }
 

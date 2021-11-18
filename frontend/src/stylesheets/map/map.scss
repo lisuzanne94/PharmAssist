@@ -1,5 +1,12 @@
+.map-container {
+    height: 75vh;
+    width: 85%;
+}
+
 #map {
     z-index: 1;
+    height: 100%;
+    width: 100%;
 }
 
 #info-container {   
