@@ -69,7 +69,7 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
                 <h1>Brand Name</h1>
                 <div className='wrapper'>
                     <div className='search-container'>
-                        <input className='searchbar' type='text' placeholder='Search for brand name medication' onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => {changeSearchVal(e)}} value={searchVal} />
+                        <input className='searchbar' type='text' placeholder='Search for brand name medication' onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => {changeSearchVal(e)}} defaultValue={state.brandName[0].toUpperCase() + state.brandName.slice(1).toLowerCase()} />
                         <div>
                             {
                                 data.displayTermsList ?
