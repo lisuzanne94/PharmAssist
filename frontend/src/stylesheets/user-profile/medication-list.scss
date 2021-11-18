@@ -1,8 +1,15 @@
+.medication-list-container {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 .medication-list {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 2em;
-    overflow: scroll;
     .medication {
         display: grid;
         grid-template-columns: 1fr;
@@ -21,6 +28,7 @@
             text-transform: uppercase;
             width: 200px;
             height: 28px;
+            cursor: pointer;
         }
     }
 }

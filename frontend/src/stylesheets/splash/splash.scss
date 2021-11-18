@@ -2,6 +2,7 @@
     height: 100vh;
     scroll-snap-type: y mandatory;
     overflow-y: auto;
+    position: relative;
 }
 
 .element-container {
@@ -24,27 +25,61 @@
 }
 
 .welcome-banner {
-    background-color: rgb(53, 80, 112);
+    // background-color: rgb(53, 80, 112);
+    background-color: #668BB7;
 }
 
 .intro-msg {
     background-color: rgb(109, 89, 122);
+    position: relative;
+}
+
+.intro-title {
+    font-family: $sec-font;
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.intro-p {
+    margin-top: 5px;
+    font-family: $sec-font;
+    font-weight: 100;
+}
+
+
+.arrow {
+    bottom: 0;
+    position: absolute;
+    margin-top: 15px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #ffffff;
+    margin-bottom: 60px;
+
 }
 
 .splash-med-list {
     background-color: rgb(181, 101, 118);
+    position: relative;
 }
 
 .splash-calendar {
     background-color: rgb(234,172,139);
+    position: relative;
 }
 
 .splash-map {
     background-color: rgb(90,170,149);
+    position: relative;
 }
 
 .splash-contact {
     background-color: rgb(134,168,115);
+    position: relative;
 }
 
 .welcome-container {
@@ -53,38 +88,38 @@
 }
 
 .welcome-to {
-    font-size: 2em;
+    font-size: 50px;
 }
 
 .pharmassist-title {
     display: block;
     font-family: $sec-font;
     text-transform: uppercase;
-    font-size: 4em;
+    font-size: 120px;
     font-weight: 500;
     letter-spacing: 1px;
-    margin-top: 20px;
-    background: rgb(53, 80, 112);
+    margin-top: 25px;
+    background: #668BB7;
     position: relative;
     animation: text 3s 1;
 }
 
 .assist {
-    color: #a5b7cc;
+    color: rgb(53, 80, 112);
 }
 
 @keyframes text {
     0% {
-        color: rgb(53, 80, 112);
-        margin-top: -40px;
+        color: #668BB7;
+        margin-top: -50px;
     }
     30% {
         letter-spacing: 20px;
-        margin-top: -40px;
+        margin-top: -50px;
     }
     85% {
         letter-spacing: 1px;
-        margin-top: -40px;
+        margin-top: -50px;
     }
 }
 

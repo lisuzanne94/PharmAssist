@@ -6,8 +6,12 @@ import DrugInfoContainer from '../drug-info/drug_info_container';
 import MedicationEditContainer from '../medication_form/medication_edit_container';
 
 
+
 function Modal({ modal, closeModal }) {
- 
+
+
+  
+  
 
   if (!modal) {
     return null;
