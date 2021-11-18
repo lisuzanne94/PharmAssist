@@ -84,9 +84,10 @@ class Calendar extends React.Component {
       daysInMonth.push(<td key={day} className={className}>
         <div className="day-block">
           {day}
+          <div className="calendar-med-list">
           {
             medsWithoutStartDate.map((medication, i) => (
-              <div key={i} className="calendar-med-list">
+              <div key={i} className="calendar-med">
                 {medication.brandName} {medication.strength} mg
               </div>
             ))
@@ -106,7 +107,7 @@ class Calendar extends React.Component {
           } */}
           {
             medsWithStartDate.map((medication, i) => (
-              <div key={i}>
+              <div key={i} className="calendar-med">
                 {
                   medication.daysOnMeds.includes(day) ? (
                     <div>
@@ -116,9 +117,16 @@ class Calendar extends React.Component {
                 }
               </div>
             ))
+            
           }
+          
         </div>
-      </td>)
+        </div>
+          
+        
+
+      </td>
+      )
 
     }
 
