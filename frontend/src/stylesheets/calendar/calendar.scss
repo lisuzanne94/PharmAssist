@@ -27,6 +27,10 @@
     }
 }
 
+.day-block::-webkit-scrollbar {
+    display: none;
+}
+
 .weekday {
     background-color: #eeeeee;
     line-height: 30px;
