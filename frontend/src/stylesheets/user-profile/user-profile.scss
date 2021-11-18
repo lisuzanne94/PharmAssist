@@ -197,6 +197,7 @@
             .user-header {
                 @include section-header;
                 @include scroll-underline;
+                color: rgba(53, 80, 112,1);
             }
 
             .add-button {

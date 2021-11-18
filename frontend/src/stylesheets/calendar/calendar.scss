@@ -30,9 +30,7 @@ $asparagus: #86A873;
     overflow-y: scroll;
     scrollbar-width: none;
 
-    &:hover {
-        background: #eee;
-    }
+
 }
 
 .day-block::-webkit-scrollbar {
@@ -49,12 +47,16 @@ $asparagus: #86A873;
     width: 140px;
     height: 90px;
     padding: 10px;
+
+        &:hover {
+        background: rgba(181, 101, 118, 0.355);
+    }
 }
 
 .current-day {
     width: 140px;
     height: 90px;
-    background-color: rgba(109, 89, 122, 0.5);
+    background-color: rgba(181, 101, 118, 0.704);
 }
 
 .calendar-med {
@@ -71,8 +73,4 @@ $asparagus: #86A873;
 
 .past-day {
     background-color: rgb(244, 244, 244);
-}
-
-.acute-med {
-    background-color: rgba(240, 178, 178, 0.4);
 }

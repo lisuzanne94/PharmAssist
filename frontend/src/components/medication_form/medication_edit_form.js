@@ -103,7 +103,7 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
                 <input type="text" defaultValue={state.duration} onChange={update('duration')}/>
                 <br /><br/>
                 <h1>Start Date</h1>
-                <input type="date" defaultValue={state.startDate} onChange={update('startDate')}/>
+                <input type="date" defaultValue={state.startDate ? state.startDate.slice(0, 10) : null} onChange={update('startDate')}/>
                 <br /><br/>
                 <input className='submit-form-button' type='submit' value='Update' />
             </form>
