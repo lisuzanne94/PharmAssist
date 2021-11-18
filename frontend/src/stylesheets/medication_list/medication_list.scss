@@ -1,0 +1,72 @@
+$blue: #355070;
+$violet: #6D597A;
+$rose: #B56576;
+$pink: #E56B6F;
+$tumbleweed: #EAAC8B;
+$pine: #5AAA95;
+$asparagus: #86A873;
+
+.med-list {
+    width: fit-content;
+}
+
+.med-list-item {
+    display: flex;
+    position: relative;
+    font-size: 20px;
+    animation: drop-in 3s;
+}
+
+.med-list-text:hover {
+    cursor: pointer;
+}
+
+.med-list-name {
+    font-weight: 300;
+}
+
+.med-list-text {
+    width: 100%;
+    padding: 0.75em;
+
+    & .med-list-name {
+        transition: color 0.5s;
+    }
+
+    &:hover .med-list-name {
+        color: $asparagus;
+    }
+}
+
+.pill-icon {
+    font-size: 24px;
+}
+
+.med-list-btns {
+    visibility: hidden;
+    position: absolute;
+    right: -40%;
+    bottom: 25%;
+    & button {
+        background-color: white;
+    }
+    & button:hover {
+        cursor: pointer;
+    }
+}
+
+
+.med-list-item:hover .med-list-btns{
+    visibility: visible;
+}
+
+@keyframes drop-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%)
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%)
+    }
+}

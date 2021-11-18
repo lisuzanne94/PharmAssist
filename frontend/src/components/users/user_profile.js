@@ -70,7 +70,7 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                     <h1 className='user-header'>Calendar</h1>
                     <div className='user-container-divider'>
                     </div>
-                    {/* <CalendarContainer /> */}
+                    <CalendarContainer />
                 </section>
             
                 <section ref={pharmacy} className='user-container'>

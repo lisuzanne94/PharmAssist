@@ -4,7 +4,6 @@
     bottom: 0;
     right: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.7);
     z-index: 10;
 }
 
@@ -13,11 +12,33 @@
     flex-direction: column;
     justify-content: space-around;
     background-color: white;
-    height: 500px;
+    height: fit-content;
     width: 380px;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 62%;
     transform: translate(-50%, -50%);
+    border: 1px solid black;
     border-radius: 24px;
+    padding: 40px 40px 40px 40px;
+    line-height: 23px;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    padding: 10px 20px 20px 20px;
+}
+
+.close-modal-btn:hover {
+    cursor: pointer;
+}
+
+.drug-info-brand {
+    font-size: 24px;
+    border-bottom: 2px solid rgb(53, 80, 112);
+    color: black;
+    margin: 0px 0px 20px 0px;
 }
