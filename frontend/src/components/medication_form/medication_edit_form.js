@@ -19,9 +19,8 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
     const [className, setClassName] = useState('search-result');
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        debugger
-        editMedication(state).then(closeModal())
+        e.preventDefault();
+        editMedication(state).then(closeModal());
     }
 
     const update = field => {
@@ -70,7 +69,7 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
                 <h1>Brand Name</h1>
                 <div className='wrapper'>
                     <div className='search-container'>
-                        <input className='searchbar' type='text' placeholder='Search for brand name medication' onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => {changeSearchVal(e)}} defaultValue={searchVal} value={searchVal} />
+                        <input className='searchbar' type='text' placeholder='Search for brand name medication' onKeyDown={(e) => handleKeyDown(e)} onChange={(e) => {changeSearchVal(e)}} defaultValue={searchVal} />
                         <div>
                             {
                                 data.displayTermsList ?

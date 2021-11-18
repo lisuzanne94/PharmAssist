@@ -82,12 +82,13 @@
     padding: 5px 0;
     width: 250px;
     font-weight: 300;
-    background: $color;
+    background: rgba(53,80,112,1);
     color: #fff;
-    border: 2px solid $color;
+    border: 2px solid rgba(53,80,112,1);
     transition: ease-in 0.1s;
     &:hover {
-        background: rgb(78, 78, 78);
+        background: rgb(194, 110, 131);
+        border-color: rgb(194, 110, 131);
         cursor: pointer;
     }
 }

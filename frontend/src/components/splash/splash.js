@@ -53,10 +53,6 @@ const Splash = ({ login }) => {
             <div className="splash-contact element-container" ref={questions}>
                 <h1>Questions? Contact us</h1>
             </div>
-
-            <footer>
-                Copyright &copy; 2021 Suzanne Li, Subin Cho, Sohee Park, Matt Swedin
-            </footer>
         </div>
     );
 }
