@@ -124,8 +124,6 @@
     #section-right {
         width: 77%;
         min-height: 100vh;
-        // scroll-snap-type: y mandatory;
-        // overflow-y: scroll;
         right: 0;
         position: absolute;
         @include flex-centered-column;
