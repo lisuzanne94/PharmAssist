@@ -6,7 +6,7 @@
     position: relative;
     display: flex;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     #user-nav {
         @include flex-centered-column;
         position: fixed;
