@@ -86,7 +86,7 @@ class Calendar extends React.Component {
                 {
                   medication.daysOnMeds.includes(day) ? (
                     <div>
-                      {medication.brandName} {medication.strength} mg
+                      <span className='medication-name-calendar' onClick={() => this.props.openModal({ type:'getDrugInfo', medication: medication})}>{medication.brandName}</span> {medication.strength} mg
                     </div>
                   ) : null
                 }
