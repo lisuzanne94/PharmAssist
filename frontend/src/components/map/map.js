@@ -3,28 +3,23 @@ import { withRouter } from "react-router";
 
 const Map = () => {
     const googleMapRef = useRef();
-    
+ 
     useEffect(() => {
-        let map;
+        window.google = undefined;
         const googleMapScript = document.createElement('script');
         googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDdZPQk6y4-kxSHKi8pbNDPHlQ2K0CnXC4&libraries=places`
         googleMapScript.async = true;
         window.document.body.appendChild(googleMapScript);
+        
 
         const createMap = () => {
-            map = new window.google.maps.Map(googleMapRef.current, {
+            const map = new window.google.maps.Map(googleMapRef.current, {
                 center: {
                     lat: 40.7477, 
                     lng: -73.9869
                 },
                 zoom: 15,
             })
-            
-            // Query google place API
-            const request = {
-                query: 'pharmacy',
-                fields: ['name', 'formatted_address', 'geometry']
-            };
             
             let infoWindow;
             
@@ -51,6 +46,12 @@ const Map = () => {
                     infoWindow.open(map, marker);
                 }))
             }
+
+            // Query google place API
+            const request = {
+                query: 'pharmacy',
+                fields: ['name', 'formatted_address', 'geometry']
+            };
             
             const cb = (results, status) => {
                 if (status === window.google.maps.places.PlacesServiceStatus.OK) {
@@ -59,10 +60,10 @@ const Map = () => {
                     }
                 }
             };
-
+            
             const service = new window.google.maps.places.PlacesService(map);
             service.textSearch(request, cb);
-    
+            
             service.findPlaceFromQuery(request, (results, status) => {
                 if (status === window.google.maps.places.PlacesServiceStatus.OK && results) {
                     for (let i = 0; i < results.length; i++) {
@@ -77,6 +78,7 @@ const Map = () => {
             createMap();
         })
     }, []);
+
 
     return (
         <div className="map-container">
