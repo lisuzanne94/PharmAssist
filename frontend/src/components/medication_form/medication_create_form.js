@@ -3,6 +3,12 @@ import axios from "axios";
 
 
 const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModal }) => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = (today.getMonth() + 1).toString().padStart(2, '0');
+    const dd = (today.getDate()).toString().padStart(2, '0');
+    const todayDate = yyyy + '-' + mm + '-' + dd;
+
     const [state, setState] = useState({
         currentUser: currentUser,
         brandName: '',
@@ -10,7 +16,7 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
         frequency: '',
         strength: '',
         duration: '',
-        startDate: '',
+        startDate: todayDate,
     })
     const [searchVal, setSearchVal] = useState('');
     const [data, setData] = useState([]);
@@ -109,7 +115,7 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
                 <input type="text" placeholder='Enter the day supply of your medication' value={state.duration} onChange={update('duration')}/>
                 <br /><br/>
                 <h1>Start Date</h1>
-                <input type="date" value={state.startDate} onChange={update('startDate')}/>
+                <input type="date" value={todayDate} onChange={update('startDate')}/>
                 <br /><br/>
                 <input className='submit-form-button' type='submit' value='Submit' />
             </form>

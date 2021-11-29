@@ -10,9 +10,10 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
         frequency: medication.frequency,
         strength: medication.strength,
         duration: medication.duration,
-        startDate: medication.startDate,
+        startDate: medication.startDate.slice(0, 10),
         _id: medication._id
     })
+    debugger
 
     const [searchVal, setSearchVal] = useState(medication.brandName);
     const [data, setData] = useState([]);
@@ -103,7 +104,7 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
                 <input type="text" defaultValue={state.duration} onChange={update('duration')}/>
                 <br /><br/>
                 <h1>Start Date</h1>
-                <input type="date" defaultValue={state.startDate ? state.startDate.slice(0, 10) : null} onChange={update('startDate')}/>
+                <input type="date" defaultValue={state.startDate} onChange={update('startDate')}/>
                 <br /><br/>
                 <input className='submit-form-button' type='submit' value='Update' />
             </form>

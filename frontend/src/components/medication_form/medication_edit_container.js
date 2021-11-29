@@ -7,11 +7,11 @@ const mapS = state => ({
     currentUser: state.session.user.id,
     medication: state.ui.modal.medication,
     errors: state.errors.medication
-})
+});
 
 const mapD = dispatch => ({
     editMedication: (medication) => dispatch(editMedication(medication)),
     closeModal: (modal) => dispatch(closeModal(modal))
-})
+});
 
-export default connect(mapS, mapD)(MedicationEditForm)
+export default connect(mapS, mapD)(MedicationEditForm);
