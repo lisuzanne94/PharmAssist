@@ -3,16 +3,16 @@ import { withRouter } from "react-router";
 
 const Map = () => {
     const googleMapRef = useRef();
-    
+ 
     useEffect(() => {
-        let map;
+        // let map;
         const googleMapScript = document.createElement('script');
         googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDdZPQk6y4-kxSHKi8pbNDPHlQ2K0CnXC4&libraries=places`
         googleMapScript.async = true;
         window.document.body.appendChild(googleMapScript);
 
         const createMap = () => {
-            map = new window.google.maps.Map(googleMapRef.current, {
+            const map = new window.google.maps.Map(googleMapRef.current, {
                 center: {
                     lat: 40.7477, 
                     lng: -73.9869
