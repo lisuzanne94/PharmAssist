@@ -17,6 +17,7 @@ PharmAssist is a web application that assists users in keeping track of their me
 
 ## Third Party APIs
 * openFDA Drug API
+* NLM RxNav API
 * Google Maps API
 
 # Features
@@ -50,8 +51,9 @@ service.findPlaceFromQuery(request, (results, status) => {
 })
 ```
 ## Medication List Additions with Search Bar Integration
+Users can add a new medication regimen to their list through a form that integrates search bar functionality to find the correct medication.
 <img src="frontend/src/images/add-medication.gif"></img>
-When users add a new medication to their regimen, they start by typing in the brand name of the medication. As they type, a GET request to the NIH'S RxNav API is performed with their input through axios. If a valid medication is found, the result is displayed and available for the user to select.
+The user starts by typing in the brand name of the medication. As they type, a GET request to the RxNav API is performed with their input through axios. If a valid medication is found, the result is displayed and available for the user to select.
 
 ```javascript
 //frontend/src/components/medication_form/medication_create_form.js
@@ -66,3 +68,6 @@ const changeSearchVal = (e) => {
     }
 };
 ```
+
+## Future Features
+* Daily medication intake checklist
