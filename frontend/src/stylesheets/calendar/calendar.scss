@@ -74,3 +74,10 @@ $asparagus: #86A873;
 .past-day {
     background-color: rgb(244, 244, 244);
 }
+
+.medication-name-calendar {
+    &:hover {
+                cursor: pointer;
+                color: rgb(0, 162, 255)
+            }
+}
