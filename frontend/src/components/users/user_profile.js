@@ -30,6 +30,13 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
         }
     }
 
+    const hideDisplay = () => {
+        if (display) {
+            setDisplay(false);
+            setClassState('display-false');
+        }
+    }
+
     const main = useRef(null);
     const medlist = useRef(null);
     const calendar = useRef(null);
@@ -40,7 +47,7 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
             <section id='user-nav'>
                 <div className='user-nav-header'>
                     <h2 className='pharmassist-header'>
-                        <button onClick={() => {main.current.scrollIntoView({ behavior: 'smooth' })}}>
+                        <button onClick={() => {main.current.scrollIntoView({ behavior: 'smooth' }); hideDisplay()}}>
                             <span>Pharm</span><span className='assist'>Assist</span>
                         </button>
                     </h2>
@@ -48,9 +55,9 @@ const UserProfile = ({ logout, openModal, fetchMedications, medications, current
                     </div>
                 </div>
                 <div className='user-nav-links'>
-                    <button onClick={() => {medlist.current.scrollIntoView({ behavior: 'smooth' })}}>Medication List</button>
-                    <button onClick={() => {calendar.current.scrollIntoView({ behavior: 'smooth' })}}>Calendar</button>
-                    <button onClick={() => {pharmacy.current.scrollIntoView({ behavior: 'smooth' })}}>Find Your Nearest Pharmacy</button>
+                    <button onClick={() => {medlist.current.scrollIntoView({ behavior: 'smooth' }); hideDisplay()}}>Medication List</button>
+                    <button onClick={() => {calendar.current.scrollIntoView({ behavior: 'smooth' }); hideDisplay()}}>Calendar</button>
+                    <button onClick={() => {pharmacy.current.scrollIntoView({ behavior: 'smooth' }); hideDisplay()}}>Find Your Nearest Pharmacy</button>
                 </div>
                 <div className='other-nav-links'>
                     <button onClick={() => toggleDisplay()}>About Us</button>
