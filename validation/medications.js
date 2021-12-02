@@ -27,6 +27,10 @@ module.exports = function validateMedicationInput(data) {
     if (Validator.isEmpty(data.strength)) {
         errors.strength = 'Strength field is required';
     }
+    
+    if (Validator.isEmpty(data.duration)) {
+        errors.strength = 'Duration field is required';
+    }
 
     // make sure form input is date
     if ((!Validator.isEmpty(data.date)) && !(Validator.isDate(data.date))) {

@@ -9,10 +9,6 @@ import MedicationEditContainer from '../medication_form/medication_edit_containe
 
 function Modal({ modal, closeModal }) {
 
-
-  
-  
-
   if (!modal) {
     return null;
   }
