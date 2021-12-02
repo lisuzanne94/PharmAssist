@@ -56,6 +56,12 @@ router.post('/',
 router.patch('/:id',
     passport.authenticate('jwt', { session: false }),
     async (req, res) => {
+        const { errors, isValid } = validateMedicationInput(req.body);
+
+        if (!isValid) {
+            return res.status(400).json(errors);
+        }
+
         try {
             const medication = await Medication.findOne({ _id: req.params.id })
 
