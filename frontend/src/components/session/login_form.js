@@ -6,15 +6,6 @@ const LoginForm = ({ errors, login }) => {
         password: ''
     });
 
-    const loginDemo = e => {
-        e.preventDefault();
-        const demoUser = Object.assign({}, {
-            email: 'demouser@mail.com',
-            password: 'demopassword'
-        })
-        login(demoUser);
-    };
-
     const update = field => {
         return e => setState(prevProps => ({
             ...prevProps,
