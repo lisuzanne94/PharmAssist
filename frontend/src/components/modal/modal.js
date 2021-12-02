@@ -1,5 +1,6 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
+import { clearErrors } from '../../actions/medication_actions';
 import { connect } from 'react-redux';
 import MedicationCreateContainer from '../medication_form/medication_create_container';
 import DrugInfoContainer from '../drug-info/drug_info_container';
@@ -7,18 +8,24 @@ import MedicationEditContainer from '../medication_form/medication_edit_containe
 
 
 
-function Modal({ modal, closeModal }) {
+function Modal({ modal, closeModal, clearErrors }) {
 
   if (!modal) {
     return null;
   }
+
+  const clearAndClose = () => {
+    closeModal();
+    clearErrors();
+  }
+
   let component;
   let modalDiv;
   switch (modal.type) {
     case 'createMedication':
       component = <MedicationCreateContainer />;
       modalDiv = (
-        <div className="med-form-modalbg" onClick={closeModal}>
+        <div className="med-form-modalbg" onClick={clearAndClose}>
           <div className="med-form-modalc" onClick={e => e.stopPropagation()}>
             {component}
           </div>
@@ -39,7 +46,7 @@ function Modal({ modal, closeModal }) {
     case 'updateMedication':
       component = <MedicationEditContainer />;
       modalDiv = (
-        <div className="med-form-modalbg" onClick={closeModal}>
+        <div className="med-form-modalbg" onClick={clearAndClose}>
           <div className="med-form-modalc" onClick={e => e.stopPropagation()}>
             {component}
           </div>
@@ -66,6 +73,7 @@ const mapS = state => {
 const mapD = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
+    clearErrors: () => dispatch(clearErrors())
   };
 };
 

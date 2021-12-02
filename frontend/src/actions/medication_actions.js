@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/medication_api_util';
+import { closeModal } from './modal_actions';
 
 export const RECEIVE_USER_MEDICATIONS = 'RECEIVE_USER_MEDICATIONS';
 export const RECEIVE_MEDICATION = 'RECEIVE_MEDICATION';
@@ -58,6 +59,7 @@ export const createMedication = data => dispatch => (
         .then(medication => {
             dispatch(receiveMedication(medication));
             dispatch(clearErrors());
+            dispatch(closeModal());
         })
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
@@ -67,6 +69,7 @@ export const editMedication = (data) => dispatch => (
         .then(medication => {
             dispatch(receiveMedication(medication));
             dispatch(clearErrors());
+            dispatch(closeModal());
         })
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );

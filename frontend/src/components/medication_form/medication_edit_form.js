@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 
-const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) => {
+const MedicationEditForm = ({ medication, errors, editMedication }) => {
     const [state, setState] = useState({
         user: medication.user,
         brandName: medication.brandName,
@@ -13,7 +13,6 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
         startDate: medication.startDate.slice(0, 10),
         _id: medication._id
     })
-    debugger
 
     const [searchVal, setSearchVal] = useState(medication.brandName);
     const [data, setData] = useState([]);
@@ -21,7 +20,7 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        editMedication(state).then(closeModal());
+        editMedication(state);
     }
 
     const update = field => {
@@ -65,6 +64,14 @@ const MedicationEditForm = ({ medication, errors, editMedication, closeModal }) 
 
     return state ? (
         <div className='modal-container'>
+            {
+                errors ? errors.map((error, i) => (
+                    <li key={i}>
+                        {error}
+                    </li>
+                )) : null
+            }
+            
             <h1 className='add-med-header'>Update Medication</h1><br/><br/>
             <form className='modal-form' onSubmit={handleSubmit}>
                 <h1>Brand Name</h1>

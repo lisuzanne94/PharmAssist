@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 
-const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModal, clearErrors }) => {
+const MedicationCreateForm = ({ currentUser, errors, createMedication, clearErrors }) => {
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = (today.getMonth() + 1).toString().padStart(2, '0');
@@ -24,7 +24,7 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        createMedication(state).then(closeModal)
+        createMedication(state)
     }
 
     const update = field => {
@@ -117,7 +117,7 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
                 <h1>Start Date</h1>
                 <input type="date" value={state.startDate} onChange={update('startDate')}/>
                 <br /><br/>
-                <input className='submit-form-button' type='submit' value='Submit' />
+                <input className='submit-form-button' type='submit' value='Submit' onClick={clearErrors} />
             </form>
         </div>
     )
