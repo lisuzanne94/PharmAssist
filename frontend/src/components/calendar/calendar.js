@@ -2,9 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 class Calendar extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   state = {
     dateContext: moment(),
@@ -26,12 +23,12 @@ class Calendar extends React.Component {
     this.state.dateContext.daysInMonth()
   )
 
-  currentDate = () => (
-    this.state.dateContext.get("date")
-  )
-
   currentDay = () => (
     this.state.dateContext.format("D")
+  )
+
+  currentMonth = () => (
+    this.state.dateContext.format("MM")
   )
 
   firstDayOfMonth = () => {
@@ -55,10 +52,17 @@ class Calendar extends React.Component {
 
     medsWithStartDate.forEach(medication => {
       medication["daysOnMeds"] = [];
-      let start = parseInt(medication.startDate.slice(8, 10))
-      let end = start + parseInt(medication.duration)
-      for (let day = start; day < end; day++) {
-        medication["daysOnMeds"].push(day)
+      let startMonth = parseInt(medication.startDate.slice(5, 7))
+      let startDay = parseInt(medication.startDate.slice(8, 10))
+      let endDay = startDay + parseInt(medication.duration)
+      if (startMonth < this.currentMonth()) {
+        for (let day = 1; day <= (medication.duration - (moment(`${startMonth}`).daysInMonth() - startDay + 1)); day++) {
+          medication["daysOnMeds"].push(day);
+        }
+      } else {
+        for (let day = startDay; day < endDay; day++) {
+          medication["daysOnMeds"].push(day);
+        }
       }
     })
 
@@ -69,35 +73,35 @@ class Calendar extends React.Component {
       if (day < currentDay) {
         className += 'past-day'
       };
-      daysInMonth.push(<td key={day} className={className}>
+      daysInMonth.push(<td key={`${this.currentMonth()}-${day}`} className={className}>
         <div className="day-block">
           {day}
           <div className="calendar-med-list">
-          {
-            medsWithoutStartDate.map((medication, i) => (
-              <div key={i} className="calendar-med">
-                {medication.brandName} {medication.strength} mg
-              </div>
-            ))
-          }
-          {
-            medsWithStartDate.map((medication, i) => (
-              <div key={i} className="calendar-med">
-                {
-                  medication.daysOnMeds.includes(day) ? (
-                    <div>
-                      <span className='medication-name-calendar' onClick={() => this.props.openModal({ type:'getDrugInfo', medication: medication})}>{medication.brandName}</span> {medication.strength} mg
-                    </div>
-                  ) : null
-                }
-              </div>
-            ))
-          }
-          
+            {
+              medsWithoutStartDate.map((medication, i) => (
+                <div key={i} className="calendar-med">
+                  {medication.brandName} {medication.strength} mg
+                </div>
+              ))
+            }
+            {
+              medsWithStartDate.map((medication, i) => (
+                <div key={i} className="calendar-med">
+                  {
+                    medication.daysOnMeds.includes(day) ? (
+                      <div>
+                        <span className='medication-name-calendar' onClick={() => this.props.openModal({ type: 'getDrugInfo', medication: medication })}>{medication.brandName}</span> {medication.strength} mg
+                      </div>
+                    ) : null
+                  }
+                </div>
+              ))
+            }
+
+          </div>
         </div>
-        </div>
-          
-        
+
+
 
       </td>
       )

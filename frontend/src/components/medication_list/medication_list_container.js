@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
-import { deleteMedication, fetchMedications } from "../../actions/medication_actions";
+import { deleteMedication } from "../../actions/medication_actions";
 import { openModal } from "../../actions/modal_actions";
 import MedicationList from './medication_list';
 
-const mSTP = (state, ownProps) => ({
+const mSTP = (_state, ownProps) => ({
     medications: ownProps.medications
 });
 
