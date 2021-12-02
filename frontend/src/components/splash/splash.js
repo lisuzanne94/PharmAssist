@@ -20,7 +20,7 @@ const Splash = () => {
                  
                 <div className="arrow" onClick={() => {whatIs.current.scrollIntoView({ behavior: 'smooth' })}}></div>
 
-                <img src={require('../../images/image-rph.png').default} className="assistant" />
+                <img src={require('../../images/image-rph.png').default } alt="pharmacist mascot" className="assistant" />
                 
             </div>
 
@@ -56,7 +56,7 @@ const Splash = () => {
             </div>
 
             <div className="splash-contact element-container" ref={questions}>
-                <h1>Questions? <a className="contact-us-link" target="_blank" href="https://github.com/lisuzanne94/PharmAssist/wiki">Contact us</a></h1>
+                <h1>Questions? <a className="contact-us-link" target="_blank" rel="noreferrer" href="https://github.com/lisuzanne94/PharmAssist/wiki">Contact us</a></h1>
             </div>
         </div>
     );

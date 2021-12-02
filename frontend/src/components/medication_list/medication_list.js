@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { fetchMedications } from "../../actions/medication_actions";
+import React from "react";
 
 const MedicationList = ({ medications, deleteMedication, openModal }) => {
     return (

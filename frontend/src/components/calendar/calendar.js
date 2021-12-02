@@ -2,9 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 class Calendar extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   state = {
     dateContext: moment(),
@@ -24,10 +21,6 @@ class Calendar extends React.Component {
 
   daysInMonth = () => (
     this.state.dateContext.daysInMonth()
-  )
-
-  currentDate = () => (
-    this.state.dateContext.get("date")
   )
 
   currentDay = () => (
@@ -61,10 +54,6 @@ class Calendar extends React.Component {
       medication["daysOnMeds"] = [];
       let startMonth = parseInt(medication.startDate.slice(5, 7))
       let startDay = parseInt(medication.startDate.slice(8, 10))
-      // console.log(startMonth)
-      // console.log(this.currentMonth())
-      // console.log(moment(`${startMonth}`).daysInMonth())
-      // console.log(moment("12").daysInMonth())
       let endDay = startDay + parseInt(medication.duration)
       if (startMonth < this.currentMonth()) {
         for (let day = 1; day <= (medication.duration - (moment(`${startMonth}`).daysInMonth() - startDay + 1)); day++) {
@@ -84,7 +73,7 @@ class Calendar extends React.Component {
       if (day < currentDay) {
         className += 'past-day'
       };
-      daysInMonth.push(<td key={day} className={className}>
+      daysInMonth.push(<td key={`${this.currentMonth()}-${day}`} className={className}>
         <div className="day-block">
           {day}
           <div className="calendar-med-list">
