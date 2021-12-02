@@ -115,7 +115,7 @@ const MedicationCreateForm = ({ currentUser, errors, createMedication, closeModa
                 <input type="text" placeholder='Enter the day supply of your medication' value={state.duration} onChange={update('duration')}/>
                 <br /><br/>
                 <h1>Start Date</h1>
-                <input type="date" value={todayDate} onChange={update('startDate')}/>
+                <input type="date" value={state.startDate} onChange={update('startDate')}/>
                 <br /><br/>
                 <input className='submit-form-button' type='submit' value='Submit' />
             </form>
