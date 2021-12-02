@@ -56,7 +56,7 @@ class Calendar extends React.Component {
       let startDay = parseInt(medication.startDate.slice(8, 10))
       let endDay = startDay + parseInt(medication.duration)
       if (startMonth < this.currentMonth()) {
-        for (let day = 1; day <= (medication.duration - (moment(`${startMonth}`).daysInMonth() - startDay + 1)); day++) {
+        for (let day = 1; day <= (medication.duration - (moment(startMonth).daysInMonth() - startDay + 1)); day++) {
           medication["daysOnMeds"].push(day);
         }
       } else {
