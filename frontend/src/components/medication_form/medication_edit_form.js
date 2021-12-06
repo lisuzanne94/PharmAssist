@@ -66,7 +66,7 @@ const MedicationEditForm = ({ medication, errors, editMedication }) => {
         <div className='modal-container'>
             {
                 errors ? errors.map((error, i) => (
-                    <li key={i}>
+                    <li className="error-color" key={i}>
                         {error}
                     </li>
                 )) : null
