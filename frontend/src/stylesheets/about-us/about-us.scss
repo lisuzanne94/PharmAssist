@@ -26,6 +26,12 @@
         padding-top: 20px;
         padding-bottom: 40px;
         background: #eaf0f3;
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
     }
     h2 {
         font-size: 35px;

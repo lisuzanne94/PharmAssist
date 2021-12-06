@@ -4,7 +4,7 @@ const AboutUs = ({ classState }) => {
     return (
         <div className={classState}>
             <div className='about-member'>
-                <img src='' alt='Suzanne'/>
+                <img src={require('../../images/suz.jpg').default} alt='Suzanne'/>
                 <h2>Suzanne Li</h2>
                 <h4>Team Lead / Flex</h4>
                 <div className='about-links'>
@@ -12,7 +12,7 @@ const AboutUs = ({ classState }) => {
                 </div>
             </div>
             <div className='about-member'>
-                <img src='' alt='Subin'/>
+                <img src={require('../../images/subin.png').default} alt='Subin'/>
                 <h2>Subin Cho</h2>
                 <h4>Frontend</h4>
                 <div className='about-links'>
@@ -20,7 +20,7 @@ const AboutUs = ({ classState }) => {
                 </div>
             </div>
             <div className='about-member'>
-                <img src='' alt='Sohee'/>
+                <img src={require('../../images/sohee.png').default} alt='Sohee'/>
                 <h2>Sohee Park</h2>
                 <h4>Backend</h4>
                 <div className='about-links'>
@@ -28,7 +28,7 @@ const AboutUs = ({ classState }) => {
                 </div>
             </div>
             <div className='about-member'>
-                <img src='' alt='Matt'/>
+                <img src={require('../../images/matt.jpg').default} alt='Matt'/>
                 <h2>Matt Swedin</h2>
                 <h4>Flex</h4>
                 <div className='about-links'>
