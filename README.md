@@ -1,6 +1,6 @@
 # PharmAssist
 
-**Due to hosting issues, the live site is no longer available.**
+**Due to [changes in Heroku's services](https://blog.heroku.com/next-chapter), the live site is no longer available.**
 
 PharmAssist is a web application that assists users in keeping track of their medication regimen and provides useful personalized information to help increase their medication adherence.
 
